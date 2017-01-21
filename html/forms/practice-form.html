@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Form</title>
+  </head>
+  <body>
+    <form action="success.html" method="post">
+      
+      <div>
+        <label>Name:</label>
+        <input type="text" name="name">
+      </div>
+      
+      <div>
+        <label>Types of Pet Owned (Select All That Apply):</label>
+        <input type="checkbox" name="pets_owned" value="dog">
+        Dog
+        <input type="checkbox" name="pets_owned" value="cat">
+        Cat
+      </div>
+      
+      <div>
+        <label>Do You Currently Have a Pet Insurance Policy?</label>
+        <input type="radio" name="insurance" value="Yes">
+        Yes
+        <input type="radio" name="insurance" value="no">
+        No
+      </div>
+      
+      <div>
+        <label>Which is Your Favorite Cat?</label>
+        <select name="fav_cat">
+          <option value="furball">Furball</option>
+          <option value="garfield">Garfield</option>
+          <option value="Hello Kitty">Hello Kitty</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Please give us feedback on our survey:</label>
+        <textarea name="feedback">How did we do?</textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+
+    </form>
+  </body>
+</html>
