@@ -1,0 +1,28 @@
+section#contact-info {
+	font-size: 0.8em;
+}
+
+section.job {
+	background-color: #e9e5dc;
+	border-radius: 10px;
+	padding-left: 25px;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	margin-top: 10px;
+}
+
+ul.accomplishments {
+	font-size: 0.8em;
+}
+
+/* Using first-letter pseudo selection to increase size of first letters of jobs */
+
+h3::first-letter {
+	font-size: 1.5em;
+}
+
+/* Selector with parent/child elements to underline experience category headings */
+
+section h2.experience-category {
+	text-decoration: underline; 
+}
