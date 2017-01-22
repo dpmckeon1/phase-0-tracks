@@ -1,3 +1,7 @@
+body {
+  width: 960px;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -9,9 +13,20 @@ cite {
   margin-top: 10px;
 }
 
+section#external-links {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+main {
+  display: inline-block;
+  width: 756px;
 }
 
 /* you're welcome to edit the
