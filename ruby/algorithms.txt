@@ -19,3 +19,49 @@ Algorithm for Using Elevator:
 9. When "Current Floor" is equal to "Desired Floor", elevator doors will open. Navigate through elevator doors. 
 
 10. You have now reached "Desired Floor"
+
+
+Algorithm for Making Kombucha:
+
+1. Create list of all necessary supplies for kombucha and store in "Supplies": 
+* Stainless steel pot with at least 1 gallon capacity
+* Glass container with large opening on top with at least 1 gallon capacity
+* SCOBY (Symbiotic Colony of Bacteria an Yeast)
+* Fine mesh strainer
+* Cheese cloth
+* Rubber band large enough to fit around neck of glass container
+* Glass jars
+* 3.5 quarts filtered water
+* 1 cup sugar
+* 18g green tea
+
+
+2. For each item in "Supplies", compare to "Current Supplies" at home. If item in "Supplies" does not appear in "Current Supplies", add to "Shopping List".
+
+3. If SCOBY exists on "Shopping List", order from this URL: http://www.culturesforhealth.com/kombucha-tea-starter-culture.html
+
+4. If Glass container exists on "Shopping List", order from this URL: https://www.amazon.com/1-gallon-USDA-Fermentation-Glass-Jar/dp/B006ZRBGSC/ref=sr_1_1
+
+5. If any other item from "Supplies" exist on "Shopping List", drive to Safeway.
+
+6. Purchase each item except SCOBY and glass container in at least the quantity/weight listed in "Shopping List".
+
+7. Return home. 
+
+8. Once all "Supplies" have been obtained, boil 3.5 quarts of filtered water on stove. 
+
+9. Turn off stove and wait 5 minutes. 
+
+10. Pour 1 cup sugar and 18g green tea into hot water to create "Sweet Tea".
+
+11. Wait 1 hour, then pour "Sweet Tea" through fine mesh strainer into glass container noted in "Supplies"
+
+12. Add SCOBY to glass container
+
+13. Place cheese cloth over top of glass container and secure with rubber band around neck. Store at temperature between 66 degrees and 72 degrees fahrenheit. 
+
+14. Wait four weeks and test kombucha.
+
+15. If it is too sweet, wait 1 week and test again. Otherwise, pour it from glass container into glass jars and place in fridge. It has now become kombucha.
+
+16. Consume kombucha at your leisure.
