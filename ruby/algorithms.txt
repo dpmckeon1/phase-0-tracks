@@ -1,0 +1,21 @@
+Algorithm for Using Elevator:
+
+1. Upon entering building, check directory for number next to desired destination.
+
+2. Remove 2 right-most digits from number in step 1 and store as "Desired Floor"
+
+3. Walk to front of elevator entrance - indicated by large metal doors periodically sliding open and closed with circular buttons to right with triangle with point facing up and triangle with point facing down.
+
+4. Find number/character immediately to right of sliding elevator doors. If character, store "Current Floor" equal to 1. Otherwise, store "Current Floor" equal to number found in this step.
+
+5. If "Desired Floor" is greater than "Current Floor", press button to right with triangle with point facing up. Otherwise, press button with triangle with point facing down. 
+
+6. Upon hearing bell sound, elevator doors will open. Then walk in to elevator 2 feet, turn 135 degrees to the right, and there will be an array of circular buttons with numbers on them. Press button that is equal to "Desired Floor". 
+
+7. Move backwards 2 feet to empty space and turn to right 45 degrees.
+
+8. Read display above array of buttons from step 6 - update "Current Floor" to this number whenever it remains constant for more than 2 seconds. 
+
+9. When "Current Floor" is equal to "Desired Floor", elevator doors will open. Navigate through elevator doors. 
+
+10. You have now reached "Desired Floor"
