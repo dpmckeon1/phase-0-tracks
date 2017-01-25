@@ -76,3 +76,5 @@ for i in 0..(employees_to_process - 1)
 
 	p vampire_result
 end
+
+p "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
