@@ -39,3 +39,8 @@ def decrypt(string_to_decrement)
 	end
 	return decrypted_string
 end
+
+# Call below calls encrycpt on "swordfish" with result "txpsegjti" and then calls 
+# decrypt on "txpsegjti" with result "swordfish"
+
+puts decrypt(encrypt("swordfish"))
