@@ -1,1 +1,42 @@
-body {background: #f5f5dc;}
+.column-1 {
+  display: inline-block;
+  width: 40%;
+  background-color: grey;
+  font-family:Arial;
+  border:1px solid yellow;
+  height:160vh;
+  overflow:scroll;
+  padding:3px;
+}
+
+.column-2 {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  background-color: grey;
+  height:160vh;
+  overflow:scroll;
+  padding:3px;
+}
+img{
+  width:100px;
+}
+h2{
+  color: #00FFFF;
+}
+footer{
+  text-align:center;
+}
+
+
+
+/*
+
+Reflection:
+
+Iliyan and I both had a pretty good idea of how to attack the problem right away. 
+Our guide, Kit, gave us some excellent additional tasks that really halped out 
+learning new things about CSS. I'm feeling pretty confident about basic CSS
+positioning. 
+
+*/
