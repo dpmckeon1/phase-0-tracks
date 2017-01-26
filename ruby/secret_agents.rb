@@ -40,7 +40,24 @@ def decrypt(string_to_decrement)
 	return decrypted_string
 end
 
-# Call below calls encrycpt on "swordfish" with result "txpsegjti" and then calls 
+# Pseudocode for user question and answer
+
+puts "Would you like to encrypt or decrypt a password? (encrypt/decrypt)"
+encrypt_decrypt_pref = gets.chomp
+
+puts "What is the password?"
+password = gets.chomp
+
+if encrypt_decrypt_pref == "encrypt"
+	puts encrypt(password)
+else
+	puts decrypt(password)
+end
+
+
+
+# Call below calls encryct on "swordfish" with result "txpsegjti" and then calls 
 # decrypt on "txpsegjti" with result "swordfish"
 
-puts decrypt(encrypt("swordfish"))
+# puts decrypt(encrypt("swordfish"))
+
