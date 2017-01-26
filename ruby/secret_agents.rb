@@ -19,9 +19,6 @@ def encrypt(string_to_increment)
 	return encrypted_string
 end
 
-puts encrypt("abc")
-puts encrypt("zed")
-
 # Decrypt Method Pseudocode:
 
 # 1. Create ALPHABET constant: "abcdefghijklmnopqrstuvwxyz"
@@ -29,6 +26,16 @@ puts encrypt("zed")
 # Turns string into array
 # 3. Run index method on ALPHABET with each element of array as an argument,
 # decrease by one, then retrieve each character from ALPHABET with new decreased index.
-# 4. Add character to result_string
+# 4. Add character to decrypted_string
 # 5. Returns string
 
+ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+
+def decrypt(string_to_decrement)
+	decrypted_string = ""
+	array_to_decrement = string_to_decrement.split("")
+	for x in array_to_decrement
+		decrypted_string += ALPHABET[ALPHABET.index(x) - 1]
+	end
+	return decrypted_string
+end
