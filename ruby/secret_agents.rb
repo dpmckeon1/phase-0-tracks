@@ -7,9 +7,20 @@
 # 5. Returns string
 
 def encrypt(string_to_increment)
+	encrypted_string = ""
 	array_to_increment = string_to_increment.split("")
+	for x in array_to_increment
+		if x=="z"
+			encrypted_string += "a"
+		else
+			encrypted_string += x.next
+		end
+	end
+	return encrypted_string
+end
 
-
+puts encrypt("abc")
+puts encrypt("zed")
 
 # Decrypt Method Pseudocode:
 
