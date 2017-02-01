@@ -1,4 +1,4 @@
-CURRENT_YEAR = 2017
+current_year = Time.new.year
 
 p "How many employees to be processed? Enter number: "
 employees_to_process = gets.chomp.to_i
@@ -21,7 +21,7 @@ for i in 0..(employees_to_process - 1)
 	p "What year were you born?"
 	user_birthyear = gets.chomp.to_i
 
-	user_agebybirthyear = CURRENT_YEAR - user_birthyear 
+	user_agebybirthyear = current_year - user_birthyear 
 
 	if user_agebybirthyear == user_age
 		age_verified = true
@@ -62,14 +62,14 @@ for i in 0..(employees_to_process - 1)
 	end
 
 
-	if age_verified && (user_garlicpref || user_insurepref) && !vampire_name_match && !sunshine_allergy
-		vampire_result = "Probably not a vampire."
-	elsif (!age_verified && (user_garlicpref || user_insurepref) && !vampire_name_match) || sunshine_allergy
-		vampire_result = "Probably a vampire."
-	elsif !(age_verified || user_garlicpref || user_insurepref) && !vampire_name_match
-		vampire_result = "Almost certainly a vampire."
-	elsif vampire_name_match
+	if vampire_name_match == true
 		vampire_result = "Definitely a vampire."
+	elsif sunshine_allergy || (!age_verified && (user_garlicpref || user_insurepref))
+		vampire_result = "Probably a vampire."
+	elsif age_verified && (user_garlicpref || user_insurepref)
+		vampire_result = "Probably not a vampire."
+	elsif !(age_verified || user_garlicpref || user_insurepref)
+		vampire_result = "Almost certainly a vampire."
 	else
 		vampire_result = "Results inconclusive."
 	end
