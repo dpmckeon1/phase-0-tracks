@@ -90,3 +90,45 @@ p "Design Theme: #{design_client[:theme]}"
 p "Project Space (sqft): #{design_client[:space_sqft].to_s}"
 p "Number of rooms in Project Space: #{design_client[:num_rooms].to_s}"
 
+p "Do you want to update any information? If so, type one of the following. If no, type none and press enter"
+p "name"
+p "email"
+p "status"
+p "discount"
+p "city"
+p "state"
+p "young_children"
+p "theme"
+p "space_sqft"
+p "num_rooms"
+update_key = gets.chomp
+
+if update_key != "none"
+	p "What is the new value of #{update_key}"
+	update_value = gets.chomp
+	update_key_sym = update_key.to_sym
+	if update_key_sym == :space_sqft || update_key_sym == :num_rooms
+		update_value = update_value.to_i
+	elsif update_key_sym == :discount || update_key_sym == :young_children
+		if update_value == "Y"
+			update_value = true
+		else
+			update_value == false
+		end
+	end
+	design_client[update_key_sym] = update_value
+end
+
+
+p "Your final information is as follows: "
+
+p "Client Name: #{design_client[:name]}"
+p "Client Email: #{design_client[:email]}"
+p "Current Status: #{design_client[:status]}"
+p "Friends and Family Discount: #{design_client[:discount].to_s}"
+p "Project City: #{design_client[:city]}"
+p "Project State: #{design_client[:state]}"
+p "Young Children: #{design_client[:young_children].to_s}"
+p "Design Theme: #{design_client[:theme]}"
+p "Project Space (sqft): #{design_client[:space_sqft].to_s}"
+p "Number of rooms in Project Space: #{design_client[:num_rooms].to_s}"
