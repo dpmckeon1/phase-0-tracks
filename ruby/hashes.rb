@@ -76,27 +76,17 @@ design_client = {
 	num_rooms: num_rooms_int, # Number of rooms in project space
 }
 
-puts design_client
 
+p "You entered the following information: "
 
-# p "You entered the following information: "
+p "Client Name: #{design_client[:name]}"
+p "Client Email: #{design_client[:email]}"
+p "Current Status: #{design_client[:status]}"
+p "Friends and Family Discount: #{design_client[:discount].to_s}"
+p "Project City: #{design_client[:city]}"
+p "Project State: #{design_client[:state]}"
+p "Young Children: #{design_client[:young_children].to_s}"
+p "Design Theme: #{design_client[:theme]}"
+p "Project Space (sqft): #{design_client[:space_sqft].to_s}"
+p "Number of rooms in Project Space: #{design_client[:num_rooms].to_s}"
 
-# p "Client Name: #{name}"
-
-# p "Client Email: #{email}"
-
-# p "Current Status: #{status}"
-
-# p "Friends and Family Discount: #{discount}"
-
-# p "Project City: #{city}"
-
-# p "Project State: #{state}"
-
-# p "Young Children: #{young_children}"
-
-# p "Design Theme: #{theme}"
-
-# p "Project Space (sqft): #{space_sqft}"
-
-# p "Number of rooms in Project Space: #{num_rooms}"
