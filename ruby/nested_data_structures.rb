@@ -41,3 +41,8 @@ city_facts = {
 		}
 	}
 }
+
+puts "Seattle's population is #{city_facts[:seattle][:population]}"
+puts "The top attractions in Minneapolis are: #{city_facts[:minneapolis][:top_attractions]}"
+puts "Chicago's favorite baseball teams is: #{city_facts[:chicago][:pro_teams][:baseball].first}"
+puts "The last attraction in the array for Seattle is: #{city_facts[:seattle][:top_attractions][-1]}"
