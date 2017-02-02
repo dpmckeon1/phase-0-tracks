@@ -10,14 +10,15 @@
 # 6) Identify all consonants in array
 # 7) Change each consonant in alias to next consonant (a,b,c,d,f,g,h,j...) and store 
 # in same position in alias_arr using method next_vowel
-# 7a) Be sure to include special case of "z" conversion to "a"
+# 7a) Be sure to include special case of "z" conversion to "b"
 # 8) Identify all non-alphabet characters and store without changing in same position
 # in alias_arr
 # 9) Call Array#join with " " parameter to convert alias_arr to array of 2 strings
 # 10) Swap positions of two strings 
-# 10) Call Array#join to combine the two elements in a single string and store in alias_str
-# 11) Print out alias_str to console
-# 12) Create aliases hash to store each alias_str as key and real_name_str as value
+# 11) Call Array#join to combine the two elements in a single string with space in 
+# between and store in alias_str
+# 12) Print out alias_str to console
+# 13) Create aliases hash to store each alias_str as key and real_name_str as value
 
 VOWELS = 		["a", "e", "i", "o", "u"]
 CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
@@ -45,13 +46,19 @@ def next_consonant(letter)
 	CONSONANTS[index]
 end
 
+def swap_names(name_array)
+	space_index = name_array.index(" ")
+	first_name_arr = name_array[0..space_index-1]
+	first_name_str = first_name_arr.join("")
+end
+
 
 p "Please enter your real name: "
 real_name_str = gets.chomp
 
 real_name_str.downcase!
 
-real_name_arr = real_name_str.split('')
+real_name_arr = real_name_str.split("")
 
 
 puts "Real name before: "
@@ -70,8 +77,14 @@ real_name_arr.each { |character|
 
 }
 
+alias_arr = swap_names(alias_arr)
+
 puts "Alias after: "
 
-alias_arr.each { |letter|
-	puts letter
-}
+puts alias_arr
+
+# alias_arr.each { |letter|
+# 	puts letter
+# }
+
+
