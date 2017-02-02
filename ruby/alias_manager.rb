@@ -18,3 +18,16 @@
 # 10) Call Array#join to combine the two elements in a single string and store in alias_str
 # 11) Print out alias_str to console
 # 12) Create aliases hash to store each alias_str as key and real_name_str as value
+
+p "Please enter your real name: "
+real_name_str = gets.chomp
+
+real_name_str.downcase!
+
+p "After downcase: #{real_name_str}"
+
+real_name_arr = real_name_str.split('')
+
+p "After split to array:"
+
+real_name_arr.each { |x| puts x } 
