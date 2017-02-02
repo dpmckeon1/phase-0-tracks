@@ -19,15 +19,45 @@
 # 11) Print out alias_str to console
 # 12) Create aliases hash to store each alias_str as key and real_name_str as value
 
+VOWELS = ["a", "e", "i", "o", "u"]
+CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
+				"p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+
+alias_arr = []
+
+def next_vowel
+end
+
+def next_consonant
+end
+
+
 p "Please enter your real name: "
 real_name_str = gets.chomp
 
 real_name_str.downcase!
 
-p "After downcase: #{real_name_str}"
-
 real_name_arr = real_name_str.split('')
 
-p "After split to array:"
 
-real_name_arr.each { |x| puts x } 
+puts "Real name before: "
+real_name_arr.each { |letter|
+	puts letter
+}
+
+real_name_arr.each { |character| 
+	if VOWELS.include?(character)
+		alias_arr << "vowel"
+	elsif CONSONANTS.include?(character)
+		alias_arr << "consonant"
+	else
+		alias_arr << "N/A"
+	end
+
+}
+
+puts "Alias after: "
+
+alias_arr.each { |letter|
+	puts letter
+}
