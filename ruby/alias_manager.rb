@@ -19,16 +19,30 @@
 # 11) Print out alias_str to console
 # 12) Create aliases hash to store each alias_str as key and real_name_str as value
 
-VOWELS = ["a", "e", "i", "o", "u"]
+VOWELS = 		["a", "e", "i", "o", "u"]
 CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
 				"p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
 
 alias_arr = []
 
-def next_vowel
+def next_vowel(letter)
+	index = VOWELS.index(letter)
+	if index == 4
+		index = 0
+	else
+		index += 1		
+	end
+	VOWELS[index]
 end
 
-def next_consonant
+def next_consonant(letter)
+	index = CONSONANTS.index(letter)
+	if index == 20
+		index = 0
+	else
+		index +=1
+	end
+	CONSONANTS[index]
 end
 
 
@@ -47,11 +61,11 @@ real_name_arr.each { |letter|
 
 real_name_arr.each { |character| 
 	if VOWELS.include?(character)
-		alias_arr << "vowel"
+		alias_arr << next_vowel(character)
 	elsif CONSONANTS.include?(character)
-		alias_arr << "consonant"
+		alias_arr << next_consonant(character)
 	else
-		alias_arr << "N/A"
+		alias_arr << character
 	end
 
 }
