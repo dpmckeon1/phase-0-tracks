@@ -49,7 +49,12 @@ end
 def swap_names(name_array)
 	space_index = name_array.index(" ")
 	first_name_arr = name_array[0..space_index-1]
+	first_name_arr[0].upcase!
 	first_name_str = first_name_arr.join("")
+	last_name_arr = name_array[space_index+1..-1]
+	last_name_arr[0].upcase!
+	last_name_str = last_name_arr.join("")
+	full_name_array = [last_name_str, first_name_str]
 end
 
 
@@ -77,11 +82,13 @@ real_name_arr.each { |character|
 
 }
 
-alias_arr = swap_names(alias_arr)
+alias_arr_swapped = swap_names(alias_arr)
+
+alias_arr_str = alias_arr_swapped.join(" ")
 
 puts "Alias after: "
 
-puts alias_arr
+puts alias_arr_str
 
 # alias_arr.each { |letter|
 # 	puts letter
