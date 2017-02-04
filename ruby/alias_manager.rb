@@ -61,6 +61,7 @@ CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
 				"p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
 
 continue = ""
+aliases = {}
 
 while continue != "quit"
 	real_name_arr = []
@@ -88,9 +89,13 @@ while continue != "quit"
 
 	alias_str = alias_arr_swapped.join(" ")
 
+	aliases[alias_str] = real_name_str
+
 	puts "Alias: #{alias_str}"
 
 	puts "Do you want to enter another name? If so, press enter. If not, type 'quit' and then press enter."
 	continue = gets.chomp
 
 end
+
+puts aliases
