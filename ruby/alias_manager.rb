@@ -20,11 +20,7 @@
 # 12) Print out alias_str to console
 # 13) Create aliases hash to store each alias_str as key and real_name_str as value
 
-VOWELS = 		["a", "e", "i", "o", "u"]
-CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
-				"p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
 
-alias_arr = []
 
 def next_vowel(letter)
 	index = VOWELS.index(letter)
@@ -33,21 +29,24 @@ def next_vowel(letter)
 	else
 		index += 1		
 	end
-	VOWELS[index]
+	return VOWELS[index]
 end
 
 def next_consonant(letter)
 	index = CONSONANTS.index(letter)
+	puts "Index for #{letter} is #{index}"
 	if index == 20
 		index = 0
 	else
-		index +=1
+		index += 1
 	end
-	CONSONANTS[index]
+	return CONSONANTS[index]
 end
 
 def swap_names(name_array)
 	space_index = name_array.index(" ")
+
+	puts "Consonants Array before upcase: #{CONSONANTS}"
 
 	first_name_arr = name_array[0..space_index-1]
 	first_name_arr[0].upcase!
@@ -56,15 +55,23 @@ def swap_names(name_array)
 	last_name_arr = name_array[space_index+1..-1]
 	last_name_arr[0].upcase!
 	last_name_str = last_name_arr.join("")
+
+	puts "Consonants Array: #{CONSONANTS}"
 	
 	name_array_swapped = [last_name_str, first_name_str]
 end
 
+VOWELS = 		["a", "e", "i", "o", "u"]
+CONSONANTS = 	["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n",
+				"p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+
 continue = ""
 
 while continue != "quit"
-	alias_arr = []
 	real_name_arr = []
+	alias_arr = []
+	real_name_str = ""
+
 
 	p "Please enter your real name: "
 	real_name_str = gets.chomp
@@ -73,18 +80,28 @@ while continue != "quit"
 
 	real_name_arr = real_name_str.split("")
 
+	puts "Real name array: #{real_name_arr}"
+
 	real_name_arr.each { |character| 
 		if VOWELS.include?(character)
+			puts "Included in VOWELS"
 			alias_arr << next_vowel(character)
 		elsif CONSONANTS.include?(character)
 			alias_arr << next_consonant(character)
+			puts "Included in CONSONANTS"
 		else
 			alias_arr << character
+			puts "Neither in VOWELS nor CONSONANTS"
 		end
-
+		puts "Character from each loop: #{character}"
 	}
 
+	puts "alias_arr: #{alias_arr}"
+
+
 	alias_arr_swapped = swap_names(alias_arr)
+
+	puts "alias_arr_swapped: #{alias_arr_swapped}"
 
 	alias_str = alias_arr_swapped.join(" ")
 
