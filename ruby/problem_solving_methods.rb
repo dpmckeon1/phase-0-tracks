@@ -46,19 +46,26 @@ else
     p "Try again, Oscar."
 end
 
+# Insertion Sort Pseudocode
+
 #2 arrays: sorted array and to be sorted array. 
 #define method that passes to be sorted array, starting by passing first integer to index zero.
 
 unsorted_array = [3, 1, 5, 2, 4]
+
 def sort(unsorted_array)
     sorted_array = Array.new(unsorted_array.length)
-    # sorted_array << unsorted_array[0]
     sorted_array[0] = unsorted_array[0]
-    index = 1
-    while index < unsorted_array.length
-        index +=1
+    unsorted_index = 1
+    while unsorted_index < unsorted_array.length
+        sorted_index = 0
+        while unsorted_array[unsorted_index] < sorted_array[sorted_index]
+        	sorted_array[sorted_index + 1] = sorted_array[sorted_index]
+        end
+        sorted_index 
+        unsorted_index +=1
     end
     return sorted_array
 end
 
-puts sort(unsorted_array)
+sort(unsorted_array)
