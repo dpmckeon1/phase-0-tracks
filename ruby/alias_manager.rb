@@ -34,7 +34,6 @@ end
 
 def next_consonant(letter)
 	index = CONSONANTS.index(letter)
-	puts "Index for #{letter} is #{index}"
 	if index == 20
 		index = 0
 	else
@@ -46,8 +45,6 @@ end
 def swap_names(name_array)
 	space_index = name_array.index(" ")
 
-	puts "Consonants Array before upcase: #{CONSONANTS}"
-
 	first_name_arr = name_array[0..space_index-1]
 	first_name_arr[0] = first_name_arr[0].upcase
 	first_name_str = first_name_arr.join("")
@@ -55,8 +52,6 @@ def swap_names(name_array)
 	last_name_arr = name_array[space_index+1..-1]
 	last_name_arr[0] = last_name_arr[0].upcase
 	last_name_str = last_name_arr.join("")
-
-	puts "Consonants Array: #{CONSONANTS}"
 	
 	name_array_swapped = [last_name_str, first_name_str]
 end
@@ -70,8 +65,6 @@ continue = ""
 while continue != "quit"
 	real_name_arr = []
 	alias_arr = []
-	real_name_str = ""
-
 
 	p "Please enter your real name: "
 	real_name_str = gets.chomp
@@ -80,28 +73,18 @@ while continue != "quit"
 
 	real_name_arr = real_name_str.split("")
 
-	puts "Real name array: #{real_name_arr}"
-
 	real_name_arr.each { |character| 
 		if VOWELS.include?(character)
-			puts "Included in VOWELS"
 			alias_arr << next_vowel(character)
 		elsif CONSONANTS.include?(character)
 			alias_arr << next_consonant(character)
-			puts "Included in CONSONANTS"
 		else
 			alias_arr << character
-			puts "Neither in VOWELS nor CONSONANTS"
 		end
-		puts "Character from each loop: #{character}"
 	}
-
-	puts "alias_arr: #{alias_arr}"
 
 
 	alias_arr_swapped = swap_names(alias_arr)
-
-	puts "alias_arr_swapped: #{alias_arr_swapped}"
 
 	alias_str = alias_arr_swapped.join(" ")
 
