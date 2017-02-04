@@ -60,27 +60,37 @@ def swap_names(name_array)
 	name_array_swapped = [last_name_str, first_name_str]
 end
 
+continue = ""
 
-p "Please enter your real name: "
-real_name_str = gets.chomp
+while continue != "quit"
+	alias_arr = []
+	real_name_arr = []
 
-real_name_str.downcase!
+	p "Please enter your real name: "
+	real_name_str = gets.chomp
 
-real_name_arr = real_name_str.split("")
+	real_name_str.downcase!
 
-real_name_arr.each { |character| 
-	if VOWELS.include?(character)
-		alias_arr << next_vowel(character)
-	elsif CONSONANTS.include?(character)
-		alias_arr << next_consonant(character)
-	else
-		alias_arr << character
-	end
+	real_name_arr = real_name_str.split("")
 
-}
+	real_name_arr.each { |character| 
+		if VOWELS.include?(character)
+			alias_arr << next_vowel(character)
+		elsif CONSONANTS.include?(character)
+			alias_arr << next_consonant(character)
+		else
+			alias_arr << character
+		end
 
-alias_arr_swapped = swap_names(alias_arr)
+	}
 
-alias_arr_str = alias_arr_swapped.join(" ")
+	alias_arr_swapped = swap_names(alias_arr)
 
-puts "Alias: #{alias_arr_str}"
+	alias_str = alias_arr_swapped.join(" ")
+
+	puts "Alias: #{alias_str}"
+
+	puts "Do you want to enter another name? If so, press enter. If not, type 'quit' and then press enter."
+	continue = gets.chomp
+
+end
