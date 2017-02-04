@@ -56,15 +56,6 @@ def sort(unsorted_array)
     sorted_array[0] = unsorted_array[0]
     index = 1
     while index < unsorted_array.length
-    #     if unsorted_array[index] > sorted_array[index]
-    #         sorted_array[index] = sorted_array[index + 1] && 
-        if unsorted_array[index] > sorted_array[0]
-            unsorted_array[index] = sorted_array[index]
-        # elsif unsorted_array[index] < sorted_array[index - 1]
-        #     unsorted_array[index] = sorted_array[index - 2]
-        else 
-            unsorted_array[index] = sorted_array[index - 2]
-        end
         index +=1
     end
     return sorted_array
