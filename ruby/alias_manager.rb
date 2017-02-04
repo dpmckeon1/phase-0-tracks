@@ -68,9 +68,9 @@ while continue != "quit"
 	alias_arr = []
 
 	p "Please enter your real name: "
-	real_name_str = gets.chomp
+	real_name_str_input = gets.chomp
 
-	real_name_str = real_name_str.downcase
+	real_name_str = real_name_str_input.downcase
 
 	real_name_arr = real_name_str.split("")
 
@@ -89,7 +89,7 @@ while continue != "quit"
 
 	alias_str = alias_arr_swapped.join(" ")
 
-	aliases[alias_str] = real_name_str
+	aliases[alias_str] = real_name_str_input
 
 	puts "Alias: #{alias_str}"
 
@@ -98,4 +98,6 @@ while continue != "quit"
 
 end
 
-puts aliases
+aliases.each { |fake_name, real_name| 
+	puts "#{fake_name} is actually #{real_name}"
+}
