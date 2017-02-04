@@ -49,11 +49,11 @@ def swap_names(name_array)
 	puts "Consonants Array before upcase: #{CONSONANTS}"
 
 	first_name_arr = name_array[0..space_index-1]
-	first_name_arr[0].upcase!
+	first_name_arr[0] = first_name_arr[0].upcase
 	first_name_str = first_name_arr.join("")
 	
 	last_name_arr = name_array[space_index+1..-1]
-	last_name_arr[0].upcase!
+	last_name_arr[0] = last_name_arr[0].upcase
 	last_name_str = last_name_arr.join("")
 
 	puts "Consonants Array: #{CONSONANTS}"
@@ -76,7 +76,7 @@ while continue != "quit"
 	p "Please enter your real name: "
 	real_name_str = gets.chomp
 
-	real_name_str.downcase!
+	real_name_str = real_name_str.downcase
 
 	real_name_arr = real_name_str.split("")
 
