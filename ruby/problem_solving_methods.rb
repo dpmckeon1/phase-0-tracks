@@ -60,42 +60,28 @@ end
 # 8) 	Else (test element not less than any values present), store at first nil value available in sorted array
 # 9) 	Return sorted array
 
-unsorted_array = [3, 1, 5, 2, 4]
+unsorted_array_1 = [3, 1, 5, 2, 4]
+unsorted_array_2 = [6, 9, 1, 22, 90, 4, 12938]
+
 
 def sort(unsorted_array)
-    sorted_array = Array.new(unsorted_array.length) # Values all nil by default
-    sorted_array[0] = unsorted_array[0]
+    sorted_array = []
+    sorted_array[0] = unsorted_array[0] # Initialize sorted_array as there is no existing value for comparison
     unsorted_index = 1
     while unsorted_index < unsorted_array.length
-    	test_value = unsorted_array[unsorted_index] # Value of 1 at start
+    	test_value = unsorted_array[unsorted_index]
         sorted_index = 0
 
         puts "Test value is #{test_value}"
 
-        ## While loop below should indicate where in sorted_array test_value is to be inserted
-        while  sorted_array[sorted_index] == nil || test_value > sorted_array[sorted_index]
-         	sorted_index += 1 # sorted_index should be where the test_value is to be placed in sorted_array
+        # While loop below indicates what index in sorted_array test_value is to be inserted
+        while  sorted_array[sorted_index] != nil && test_value > sorted_array[sorted_index]
+         	sorted_index += 1
         end
 
         puts "Sorted index for #{test_value} is #{sorted_index}"
 
         sorted_array.insert(sorted_index, test_value)
-
-
-
-
-        # Tests whether
-        # if sorted_index < unsorted_index
-        # 	# Move elements from sorted_index to end up one spot
-        # 	# First we want to move the last element, then second to last and so on
-        # 	push_index = unsorted_index - 1
-        # 	while push_index > sorted_index
-        # 		sorted_array[push_index] = sorted_array[push_index + 1]
-        # 		push_index -= 1
-        # 	end
-        # end
-
-        # sorted_array[sorted_index] = test_value
 
         unsorted_index +=1
 
@@ -104,4 +90,6 @@ def sort(unsorted_array)
     return sorted_array
 end
 
-sort(unsorted_array)
+puts "Sorted version of #{unsorted_array_1} is #{sort(unsorted_array_1)}"
+puts "Sorted version of #{unsorted_array_2} is #{sort(unsorted_array_2)}"
+
