@@ -48,22 +48,32 @@ end
 
 # Insertion Sort Pseudocode
 
-#2 arrays: sorted array and to be sorted array. 
-#define method that passes to be sorted array, starting by passing first integer to index zero.
+# 1)	sort method takes unsorted array as argument
+# 2)	declare sorted array to store elements as they are processed
+# 3)	store first element (index 0) from unsorted array into sorted array (index 0)
+# 4)	use while loop to loop through unsorted array index 1 to n, with n being the length of the array minus 1
+# 5)	for each test element of unsorted array, compare to all non-nil values of sorted array, starting with
+# 	index 0. 
+# 6)	If test element is less than sorted array element at index z, move all elements from indexz to end 
+# 	of non-nil values up one index.
+# 7) 	Store test element at index z
+# 8) 	Else (test element not less than any values present), store at first nil value available in sorted array
+# 9) 	Return sorted array
 
 unsorted_array = [3, 1, 5, 2, 4]
 
 def sort(unsorted_array)
-    sorted_array = Array.new(unsorted_array.length)
+    sorted_array = Array.new(unsorted_array.length) # Values all nil by default
     sorted_array[0] = unsorted_array[0]
     unsorted_index = 1
     while unsorted_index < unsorted_array.length
+    	test_value = unsorted_array[unsorted_index] # Value of 1 at start
         sorted_index = 0
-        while unsorted_array[unsorted_index] < sorted_array[sorted_index]
-        	sorted_array[sorted_index + 1] = sorted_array[sorted_index]
-        end
-        sorted_index 
-        unsorted_index +=1
+        while test_value < sorted_array[sorted_index]
+         	sorted_array[sorted_index + 1] = sorted_array[sorted_index]
+        # end
+        # sorted_index 
+        # unsorted_index +=1
     end
     return sorted_array
 end
