@@ -68,8 +68,12 @@ def sort(unsorted_array)
     unsorted_index = 1
     while unsorted_index < unsorted_array.length
     	test_value = unsorted_array[unsorted_index] # Value of 1 at start
+    	puts test_value
         sorted_index = 0
-        while test_value > sorted_array[sorted_index]
+
+
+        ## LINE BELOW IS CAUSING TROUBLE!!! Seems like it's not processing once it gets to 5
+        while test_value > sorted_array[sorted_index] || sorted_array[sorted_index] == nil
          	sorted_index += 1 # sorted_index should be where the test_value is to be placed in sorted_array
         end
 
