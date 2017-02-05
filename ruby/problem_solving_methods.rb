@@ -62,6 +62,7 @@ end
 
 unsorted_array_1 = [3, 1, 5, 2, 4]
 unsorted_array_2 = [6, 9, 1, 22, 90, 4, 12938]
+unsorted_array_3 = ["a", "d", "b", "g", "e"]
 
 
 def sort(unsorted_array)
@@ -72,24 +73,19 @@ def sort(unsorted_array)
     	test_value = unsorted_array[unsorted_index]
         sorted_index = 0
 
-        puts "Test value is #{test_value}"
-
         # While loop below indicates what index in sorted_array test_value is to be inserted
         while  sorted_array[sorted_index] != nil && test_value > sorted_array[sorted_index]
          	sorted_index += 1
         end
 
-        puts "Sorted index for #{test_value} is #{sorted_index}"
-
         sorted_array.insert(sorted_index, test_value)
 
         unsorted_index +=1
-
-        puts "sorted_array is #{sorted_array}"
     end
     return sorted_array
 end
 
 puts "Sorted version of #{unsorted_array_1} is #{sort(unsorted_array_1)}"
 puts "Sorted version of #{unsorted_array_2} is #{sort(unsorted_array_2)}"
+puts "Sorted version of #{unsorted_array_3} is #{sort(unsorted_array_3)}"
 
