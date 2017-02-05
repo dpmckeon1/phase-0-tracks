@@ -69,11 +69,23 @@ def sort(unsorted_array)
     while unsorted_index < unsorted_array.length
     	test_value = unsorted_array[unsorted_index] # Value of 1 at start
         sorted_index = 0
-        while test_value < sorted_array[sorted_index]
-         	sorted_array[sorted_index + 1] = sorted_array[sorted_index]
-        # end
-        # sorted_index 
-        # unsorted_index +=1
+        while test_value > sorted_array[sorted_index]
+         	sorted_index += 1 # sorted_index should be where the test_value is to be placed in sorted_array
+        end
+
+        if sorted_index < unsorted_index
+        	# Move elements from sorted_index to end up one spot
+        	# First we want to move the last element, then second to last and so on
+        	push_index = unsorted_index - 1
+        	while push_index > sorted_index
+        		sorted_array[push_index] = sorted_array[push_index + 1]
+        		push_index -= 1
+        	end
+        end
+
+        sorted_array[sorted_index] = test_value
+
+        unsorted_index +=1
     end
     return sorted_array
 end
