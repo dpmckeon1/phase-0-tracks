@@ -68,28 +68,38 @@ def sort(unsorted_array)
     unsorted_index = 1
     while unsorted_index < unsorted_array.length
     	test_value = unsorted_array[unsorted_index] # Value of 1 at start
-    	puts test_value
         sorted_index = 0
 
+        puts "Test value is #{test_value}"
 
-        ## LINE BELOW IS CAUSING TROUBLE!!! Seems like it's not processing once it gets to 5
-        while test_value > sorted_array[sorted_index] || sorted_array[sorted_index] == nil
+        ## While loop below should indicate where in sorted_array test_value is to be inserted
+        while  sorted_array[sorted_index] == nil || test_value > sorted_array[sorted_index]
          	sorted_index += 1 # sorted_index should be where the test_value is to be placed in sorted_array
         end
 
-        if sorted_index < unsorted_index
-        	# Move elements from sorted_index to end up one spot
-        	# First we want to move the last element, then second to last and so on
-        	push_index = unsorted_index - 1
-        	while push_index > sorted_index
-        		sorted_array[push_index] = sorted_array[push_index + 1]
-        		push_index -= 1
-        	end
-        end
+        puts "Sorted index for #{test_value} is #{sorted_index}"
 
-        sorted_array[sorted_index] = test_value
+        sorted_array.insert(sorted_index, test_value)
+
+
+
+
+        # Tests whether
+        # if sorted_index < unsorted_index
+        # 	# Move elements from sorted_index to end up one spot
+        # 	# First we want to move the last element, then second to last and so on
+        # 	push_index = unsorted_index - 1
+        # 	while push_index > sorted_index
+        # 		sorted_array[push_index] = sorted_array[push_index + 1]
+        # 		push_index -= 1
+        # 	end
+        # end
+
+        # sorted_array[sorted_index] = test_value
 
         unsorted_index +=1
+
+        puts "sorted_array is #{sorted_array}"
     end
     return sorted_array
 end
