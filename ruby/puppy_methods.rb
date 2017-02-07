@@ -50,20 +50,32 @@ class HockeyPlayer
 end
 
 
-# goober = Puppy.new
-# goober.fetch("ball")
+goober = Puppy.new
+goober.fetch("ball")
 
-# goober.speak(5)
+goober.speak(5)
 
-# goober.roll_over
+goober.roll_over
 
-# p goober.dog_years(4)
+p goober.dog_years(4)
 
-# goober.sit("Goober")
+goober.sit("Goober")
+
+num_players = 0
+hockey_team = []
+
+until num_players == 50
+	hockey_team[num_players] = HockeyPlayer.new
+	num_players += 1
+end
+
 
 mario_lemieux = HockeyPlayer.new
 mario_lemieux.shoot("Upper Right")
 mario_lemieux.shoot("Center")
 mario_lemieux.check("Mario Lemieux", "Joe Sakic")
 
-
+hockey_team.each { |player| 
+	player.shoot("Upper Right")
+	player.check("Our guy", "Their guy")
+}
