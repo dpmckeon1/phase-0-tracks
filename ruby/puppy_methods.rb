@@ -28,17 +28,42 @@ class Puppy
   	puts "Initializing new puppy instance..."
   end
 
-
 end
 
-goober = Puppy.new
-goober.fetch("ball")
+class HockeyPlayer
+	
+	def initialize
+		puts "You've created a new hockey player"
+	end
 
-goober.speak(5)
+	def shoot(location)
+		if location == "Upper Right"
+			puts "You scored!"
+		else
+			puts "Big save by the goaltender."
+		end
+	end
 
-goober.roll_over
+	def check(checker_name, target_name)
+		puts "#{checker_name} checked #{target_name}"
+	end
+end
 
-p goober.dog_years(4)
 
-goober.sit("Goober")
+# goober = Puppy.new
+# goober.fetch("ball")
+
+# goober.speak(5)
+
+# goober.roll_over
+
+# p goober.dog_years(4)
+
+# goober.sit("Goober")
+
+mario_lemieux = HockeyPlayer.new
+mario_lemieux.shoot("Upper Right")
+mario_lemieux.shoot("Center")
+mario_lemieux.check("Mario Lemieux", "Joe Sakic")
+
 
