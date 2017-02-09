@@ -4,7 +4,7 @@ class Santa
 		@ethnicity = ethnicity
 		@age = 0
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		puts "Initializing Santa instance..."
+		puts "Initializing Santa instance Gender: #{@gender}, Ethnicity: #{@ethnicity}, Age: #{@age}, and Reindeer Ranking: #{@reindeer_ranking}"
 	end
 
 	def speak
@@ -20,15 +20,26 @@ santa_jim = Santa.new("Male", "Hawaiian")
 santa_jim.speak
 santa_jim.eat_milk_and_cookies("Chocolate Chip Cookie")
 
-santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
-santas << Santa.new("bigender", "white")
-santas << Santa.new("male", "Japanese")
-santas << Santa.new("female", "prefer not to say")
-santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
-santas << Santa.new("N/A", "N/A")
+genders = ["Male", "Female", "Cis", "Trans"]
+ethnicities = ["White", "Latino", "Brazilian", "Portuguese", "Chinese", "Filipino"]
 
-santas.each { |santa|
-	puts santa.speak
+diverse_random_santas = []
+
+10.times { |i|
+	# diverse_random_santas << Santa.new(genders.sample, ethnicities.sample)
+	diverse_random_santas[i] = Santa.new(genders.sample, ethnicities.sample)
+}
+
+diverse_nonrandom_santas = []
+
+10.times { |i|
+	gender_index = i % 4
+	ethnicity_index = i % 6
+	diverse_nonrandom_santas << Santa.new(genders[gender_index], ethnicities[ethnicity_index])
+}
+
+homogenous_santas = []
+
+10.times {
+	homogenous_santas << Santa.new(genders[1], ethnicities[1])
 }
