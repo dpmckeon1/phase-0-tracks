@@ -3,16 +3,21 @@
 # output: grocery list hash
 # steps: 
   # 1) Store argument (string of items) separated into array by dividing it at each space
-  # 2) Populate a hash with that that string as the key and default value of 1
+  # 2) Populate a hash with that that string from array as the key and default value of 1
   # 3) Print hash to console
   # 4) Return hash
 
 def create_list(grocery_items)
-	
-
+	grocery_arr = grocery_items.split(" ")
+	groceries = grocery_arr.each_with_object({}) do |item, grocery_hash|
+		grocery_hash[item] = 1
+	end
+	# Replace with prints method once available
+	puts groceries
+	groceries
 end
 
-
+create_list("apples bananas pears")
 
 
 # Method to add an item to a list
