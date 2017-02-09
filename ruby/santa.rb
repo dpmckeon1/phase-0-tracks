@@ -14,32 +14,47 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie_type}!"
 	end
+
+	def celebrate_birthday
+		@age += 1
+	end
+
+	def get_mad_at(reindeer_name)
+		# Find index
+		# Call delete_at(index)
+		# Append reindeer_name to end of array
+	end
+
+
 end
 
+# santa_jim = Santa.new("Male", "Hawaiian")
+# santa_jim.speak
+# santa_jim.eat_milk_and_cookies("Chocolate Chip Cookie")
+
+# genders = ["Male", "Female", "Cis", "Trans"]
+# ethnicities = ["White", "Latino", "Brazilian", "Portuguese", "Chinese", "Filipino"]
+
+# diverse_random_santas = []
+
+# 10.times { |i|
+# 	# diverse_random_santas << Santa.new(genders.sample, ethnicities.sample)
+# 	diverse_random_santas[i] = Santa.new(genders.sample, ethnicities.sample)
+# }
+
+# diverse_nonrandom_santas = []
+
+# 10.times { |i|
+# 	gender_index = i % 4
+# 	ethnicity_index = i % 6
+# 	diverse_nonrandom_santas << Santa.new(genders[gender_index], ethnicities[ethnicity_index])
+# }
+
+# homogenous_santas = []
+
+# 10.times {
+# 	homogenous_santas << Santa.new(genders[1], ethnicities[1])
+# }
+
 santa_jim = Santa.new("Male", "Hawaiian")
-santa_jim.speak
-santa_jim.eat_milk_and_cookies("Chocolate Chip Cookie")
-
-genders = ["Male", "Female", "Cis", "Trans"]
-ethnicities = ["White", "Latino", "Brazilian", "Portuguese", "Chinese", "Filipino"]
-
-diverse_random_santas = []
-
-10.times { |i|
-	# diverse_random_santas << Santa.new(genders.sample, ethnicities.sample)
-	diverse_random_santas[i] = Santa.new(genders.sample, ethnicities.sample)
-}
-
-diverse_nonrandom_santas = []
-
-10.times { |i|
-	gender_index = i % 4
-	ethnicity_index = i % 6
-	diverse_nonrandom_santas << Santa.new(genders[gender_index], ethnicities[ethnicity_index])
-}
-
-homogenous_santas = []
-
-10.times {
-	homogenous_santas << Santa.new(genders[1], ethnicities[1])
-}
+santa_jim.celebrate_birthday
