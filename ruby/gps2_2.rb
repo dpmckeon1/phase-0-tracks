@@ -17,13 +17,24 @@ def create_list(grocery_items)
 	groceries
 end
 
-create_list("apples bananas pears")
+my_groceries = create_list("apples bananas pears")
 
 
 # Method to add an item to a list
-# input: list, item name, and optional quantity
-# steps:
-# output:
+# input: list (Hash), item name (string), and optional quantity (integer)
+# output: updated list (Hash)
+# steps: 
+	# 1) Use the item name as a new key and quantity as new value and push those two elements into Hash
+	# 2) Return the Hash
+
+def add_item(groceries, new_item, quantity)
+	groceries[new_item] = quantity
+end
+
+add_item(my_groceries, "kiwi", 3)
+
+puts my_groceries
+
 
 # Method to remove an item from the list
 # input:
