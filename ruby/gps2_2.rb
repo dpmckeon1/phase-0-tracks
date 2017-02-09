@@ -13,12 +13,9 @@ def create_list(grocery_items)
 		grocery_hash[item] = 1
 	end
 	# Replace with prints method once available
-	puts groceries
+	print_list(groceries)
 	groceries
 end
-
-my_groceries = create_list("apples bananas pears")
-
 
 # Method to add an item to a list
 # input: list (Hash), item name (string), and optional quantity (integer)
@@ -31,24 +28,54 @@ def add_item(groceries, new_item, quantity)
 	groceries[new_item] = quantity
 end
 
-add_item(my_groceries, "kiwi", 3)
-
-puts my_groceries
-
-
 # Method to remove an item from the list
-# input:
+# input: list (Hash), item to remove (string)
+# output: update list (Hash)
 # steps:
-# output:
+	# 1) Take the item name, see if it exists in the hash
+	# 2) Delete item
+	# 3) Return updated hash
+
+def delete_item(groceries, item)
+	if groceries.include?(item)
+		groceries.delete(item)
+	end
+	groceries
+end
 
 # Method to update the quantity of an item
-# input:
+# input: list (Hash), item to update(string), quantity to update(int)
+# output: Updated hash
 # steps:
-# output:
+	# 1) Take item name, see if it exists in hash
+	# 2) Update qty if it does exists
+	# 3) Return update hash
+
+def update_quantity(groceries, item, quantity)
+	if groceries.include?(item)
+		groceries[item] = quantity
+	end
+	groceries
+end
 
 # Method to print a list and make it look pretty
-# input:
-# steps:
-# output:
+# input: List (hash)
+# output: nil
+# steps: 
+	# 1) Pass in grocery list hash
+	# 2) Print each key value pair to console
+
+def print_list(grocery_list)
+	grocery_list.each{ |item, quantity| puts "#{quantity} #{item}s"}
+end
 
 
+my_groceries = create_list("apple banana pear")
+
+add_item(my_groceries, "kiwi", 3)
+
+delete_item(my_groceries, "apples")
+
+update_quantity(my_groceries, "kiwi", 6)
+
+print_list(my_groceries)
