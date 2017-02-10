@@ -1,4 +1,7 @@
 class Santa
+	attr_reader :age, :ethnicity
+	attr_accessor :gender
+
 	def initialize(gender, ethnicity)
 		@gender = gender
 		@ethnicity = ethnicity
@@ -27,21 +30,6 @@ class Santa
 		@reindeer_ranking.delete_at(reindeer_index)
 		@reindeer_ranking << reindeer_name
 		puts "After delete_at: #{@reindeer_ranking}"
-	end
-
-	# Getter methods
-	def age
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
-	# Setter methods
-	def gender=(new_gender)
-		@gender = new_gender
-		puts "New gender: #{@gender}"
 	end
 end
 
@@ -77,5 +65,6 @@ santa_jim = Santa.new("Male", "Hawaiian")
 santa_jim.celebrate_birthday
 santa_jim.get_mad_at("Vixen")
 santa_jim.gender = "Cis"
+puts santa_jim.gender
 puts santa_jim.age
 puts santa_jim.ethnicity
