@@ -16,16 +16,24 @@ class Santa
 	end
 
 	def celebrate_birthday
+		puts "Previous age: #{@age}"
 		@age += 1
+		puts "New age: #{@age}"
 	end
 
 	def get_mad_at(reindeer_name)
-		# Find index
-		# Call delete_at(index)
-		# Append reindeer_name to end of array
+		puts "Before delete_at: #{@reindeer_ranking}"
+		reindeer_index = @reindeer_ranking.index(reindeer_name)
+		@reindeer_ranking.delete_at(reindeer_index)
+		@reindeer_ranking << reindeer_name
+		puts "After delete_at: #{@reindeer_ranking}"
 	end
 
-
+	# Setter methods
+	def gender=(new_gender)
+		@gender = new_gender
+		puts "New gender: #{@gender}"
+	end
 end
 
 # santa_jim = Santa.new("Male", "Hawaiian")
@@ -58,3 +66,5 @@ end
 
 santa_jim = Santa.new("Male", "Hawaiian")
 santa_jim.celebrate_birthday
+santa_jim.get_mad_at("Vixen")
+santa_jim.gender = "Cis"
