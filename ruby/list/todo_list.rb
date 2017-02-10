@@ -3,8 +3,21 @@ class TodoList
 		@todo_list = todo_list
 	end
 	
+	def get_item(index_to_retrieve)
+		@todo_list[index_to_retrieve]
+	end
+
 	def get_items
 		@todo_list
+	end
+
+	def add_item(new_item)
+		@todo_list << new_item
+	end
+
+	def delete_item(item_to_delete)
+		index_to_delete = @todo_list.index(item_to_delete)
+		@todo_list.delete_at(index_to_delete)
 	end
 end
 
