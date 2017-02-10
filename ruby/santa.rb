@@ -29,6 +29,15 @@ class Santa
 		puts "After delete_at: #{@reindeer_ranking}"
 	end
 
+	# Getter methods
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
+
 	# Setter methods
 	def gender=(new_gender)
 		@gender = new_gender
@@ -68,3 +77,5 @@ santa_jim = Santa.new("Male", "Hawaiian")
 santa_jim.celebrate_birthday
 santa_jim.get_mad_at("Vixen")
 santa_jim.gender = "Cis"
+puts santa_jim.age
+puts santa_jim.ethnicity
