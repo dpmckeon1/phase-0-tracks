@@ -16,9 +16,20 @@
 
 # a) Store mystery_word in variable
 # b) Set max_guesses equal to mystery_word_length (not counting spaces or double letters) times 1.5
-# b) Create empty array of same length to store guess_progress
-# c) Check guess letter input against mystery_word and previous_guesses
-# d) If present in previous guesses, do not up guess_count and notify player
-# e) Elsif present in mystery word, store letter in proper location in guess_progress
-# f) Else do not update guess progress
-# g) Return guess_progress to display to user
+# c) Create empty array of same length to store guess_progress
+# d) Check guess letter input against mystery_word and previous_guesses
+# e) If present in previous guesses, do not up guess_count and notify player
+# f) Elsif present in mystery word, store letter in proper location in guess_progress
+# g) Else do not update guess progress
+# h) Return guess_progress to display to user
+
+class WordGame
+	def initialize
+	end
+	def create_mystery_array
+	end
+	def process_guess(guess_letter)
+	end
+	def generate_message(game_result)
+	end
+end
