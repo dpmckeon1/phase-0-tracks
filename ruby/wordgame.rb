@@ -15,7 +15,7 @@
 # class WordGame pseudocode
 
 # a) Store mystery_word in variable
-# b) Set max_guesses equal to mystery_word_length (not counting spaces or double letters) times 1.5
+# b) Set max_guesses equal to mystery_word_length times 1.5
 # c) Create empty array of same length to store guess_progress
 # d) Check guess letter input against mystery_word and previous_guesses
 # e) If present in previous guesses, do not up guess_count and notify player
@@ -24,9 +24,14 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	def initialize
+	attr_reader :mystery_word_arr, :guess_arr	
+
+	def initialize(mystery_word_str)
+		@mystery_word_arr = mystery_word_str.split("")
+		@guess_arr = Array.new(mystery_word_arr.length, "_")
 	end
 	def set_max_guesses
+		@max_guesses = @mystery_word_arr.length
 	end	
 	def process_guess(guess_letter)
 	end
