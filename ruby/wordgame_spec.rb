@@ -15,10 +15,10 @@ describe WordGame do
     expect(guess.max_guesses).to eq 10
   end
 
-  # it "deletes an item" do
-  #   list.delete_item("do the dishes")
-  #   expect(list.get_items).to eq ["mow the lawn"]
-  # end
+  it "finds correct indices when correct letter is guessed" do
+    guess.process_letter("y")
+    expect(guess.letter_check_arr).to eq [false, true, false, false, false, false, true]
+  end
 
   # it "retrieves an item by index" do
   #   expect(list.get_item(0)).to eq "do the dishes"
