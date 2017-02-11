@@ -24,15 +24,13 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	attr_reader :mystery_word_arr, :guess_arr	
+	attr_reader :mystery_word_arr, :guess_arr, :max_guesses	
 
 	def initialize(mystery_word_str)
 		@mystery_word_arr = mystery_word_str.split("")
 		@guess_arr = Array.new(mystery_word_arr.length, "_")
+		@max_guesses = (@mystery_word_arr.length * 1.5).to_i
 	end
-	def set_max_guesses
-		@max_guesses = @mystery_word_arr.length
-	end	
 	def process_guess(guess_letter)
 	end
 	def generate_message(game_result)

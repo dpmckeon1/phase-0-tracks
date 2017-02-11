@@ -12,7 +12,7 @@ describe WordGame do
   end
 
   it "sets max guesses equal to 1.5 times number of letters" do
-    expect(guess.max_guesses).to eq 9
+    expect(guess.max_guesses).to eq 10
   end
 
   # it "deletes an item" do
