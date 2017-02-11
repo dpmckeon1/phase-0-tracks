@@ -26,8 +26,8 @@
 class WordGame
 	def initialize
 	end
-	def create_mystery_array
-	end
+	def set_max_guesses
+	end	
 	def process_guess(guess_letter)
 	end
 	def generate_message(game_result)
