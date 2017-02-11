@@ -24,15 +24,29 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	attr_reader :mystery_word_arr, :guess_arr, :max_guesses	
+	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :letter_check_arr	
 
 	def initialize(mystery_word_str)
 		@mystery_word_arr = mystery_word_str.split("")
 		@guess_arr = Array.new(mystery_word_arr.length, "_")
-		@max_guesses = (@mystery_word_arr.length * 1.5).to_i
+		@max_guesses = (@mystery_word_arr.length * 1.5).to_i # Rounds down to nearest integer
 	end
 	def process_guess(guess_letter)
+		if @mystery_word_arr.includes? (guess_letter)
+			self.process_correct_guess
+		else
+			puts "Sorry, #{guess_letter} is not in the mystery word"
+		end
+		@mystery_word_arr
 	end
+
+	def process_correct_guess
+		i = 0
+		while i < @mystery_word_arr.length
+
+
+
+
 	def generate_message(game_result)
 	end
 end

@@ -20,6 +20,11 @@ describe WordGame do
     expect(guess.letter_check_arr).to eq [false, true, false, false, false, false, true]
   end
 
+  it "prints message to screen when incorrect letter is guessed" do
+    guess.process_letter("q")
+    expect(guess.letter_check_arr).to output("Sorry, q is not in the mystery word").to_stdout
+  end
+
   # it "retrieves an item by index" do
   #   expect(list.get_item(0)).to eq "do the dishes"
   # end
