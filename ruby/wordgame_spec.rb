@@ -24,7 +24,7 @@ describe WordGame do
   end
 
   it "flags repeat when repeated letter is guessed" do
-    game.update_guess_arr([0], "m")
+    game.previous_guesses = ["m", "n"]
     expect(game.categorize_guess("m")).to eq "repeat"
   end  
 
@@ -52,7 +52,7 @@ describe WordGame do
 
   it "ensures repeat guesses are not counted against max_guesses limit" do
   	game.num_guesses = 4
-  	game.update_guess_arr([0], "m")
+  	game.previous_guesses = ["m"]
   	game.categorize_guess("m")
   	game.update_guesses_and_result
     expect(game.num_guesses).to eq 4
