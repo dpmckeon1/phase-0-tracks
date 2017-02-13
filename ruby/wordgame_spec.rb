@@ -16,8 +16,17 @@ describe WordGame do
   end
 
   it "processes guess letter when correct letter is guessed" do
-    expect(game.is_correct_guess("y")).to eq true
+    expect(game.is_correct_guess?("m")).to eq true
   end
+
+  it "does not process guess letter when incorrect letter is guessed" do
+    expect(game.is_correct_guess?("z")).to eq false
+  end
+
+  it "does not process guess letter when repeated letter is guessed" do
+    game.update_guess_arr([0], "m")
+    expect(game.is_correct_guess?("m")).to eq false
+  end  
 
   it "finds correct indices when correct letter guessed" do
     expect(game.find_guess_index("y")).to eq [1, 6]

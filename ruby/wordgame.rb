@@ -33,7 +33,12 @@ class WordGame
 	end
 
 	
-	def is_correct?(guess_letter)
+	def is_correct_guess?(guess_letter)
+		if @mystery_word_arr.include?(guess_letter) && !@guess_arr.include?(guess_letter)
+			true
+		else
+			false
+		end
 	end
 
 	def find_guess_index(guess_letter)
