@@ -87,8 +87,6 @@ class WordGame
 	end
 end
 
-# Prompt for word
-
 puts "First Player...please enter mystery word: "
 mystery_word = gets.chomp
 

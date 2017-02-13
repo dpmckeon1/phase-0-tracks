@@ -16,16 +16,16 @@ describe WordGame do
   end
 
   it "processes guess letter when correct letter is guessed" do
-    expect(game.is_correct_guess?("m")).to eq true
+    expect(game.categorize_guess("m")).to eq "present"
   end
 
   it "does not process guess letter when incorrect letter is guessed" do
-    expect(game.is_correct_guess?("z")).to eq false
+    expect(game.categorize_guess("z")).to eq "absent"
   end
 
-  it "does not process guess letter when repeated letter is guessed" do
+  it "flags repeat when repeated letter is guessed" do
     game.update_guess_arr([0], "m")
-    expect(game.is_correct_guess?("m")).to eq false
+    expect(game.categorize_guess("m")).to eq "repeat"
   end  
 
   it "finds correct indices when correct letter guessed" do
@@ -53,7 +53,7 @@ describe WordGame do
   it "ensures repeat guesses are not counted against max_guesses limit" do
   	game.num_guesses = 4
   	game.update_guess_arr([0], "m")
-  	game.is_correct_guess?("m")
+  	game.categorize_guess("m")
   	game.update_guesses_and_result
     expect(game.num_guesses).to eq 4
   end
