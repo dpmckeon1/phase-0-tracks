@@ -24,7 +24,8 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr, :game_result	
+	attr_accessor :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr, 
+	:result, :num_guesses	
 
 	def initialize(mystery_word_str)
 		@result = "ongoing"
@@ -66,7 +67,7 @@ class WordGame
 
 	def update_guesses_and_result
 		@num_guesses += 1
-		if @num_guesses == @max_guesses  && @mystery_word_arr == @guess_arr
+		if @num_guesses <= @max_guesses  && @mystery_word_arr == @guess_arr
 			@result = "win"
 		elsif @num_guesses == @max_guesses
 			@result = "lose"
@@ -79,29 +80,29 @@ end
 
 # Prompt for word
 
-puts "First Player...please enter mystery word: "
-mystery_word = gets.chomp
+# puts "First Player...please enter mystery word: "
+# mystery_word = gets.chomp
 
-game = WordGame.new(mystery_word)
+# game = WordGame.new(mystery_word)
 
-while game.result == "ongoing"
+# while game.result == "ongoing"
 
-	puts "Second Player...Please enter a letter that you think is in the mystery word: "
+# 	puts "Second Player...Please enter a letter that you think is in the mystery word: "
 
-	guess_letter = gets.chomp
+# 	guess_letter = gets.chomp
 
-	if game.is_correct_guess?(guess_letter)
-		guess_index = game.find_guess_index(guess_letter)
-		game.update_guess_arr(guess_index, guess_letter)
-		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
-	else
-		puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
-		award you zero letters in the mystery word."
-	end
+# 	if game.is_correct_guess?(guess_letter)
+# 		guess_index = game.find_guess_index(guess_letter)
+# 		game.update_guess_arr(guess_index, guess_letter)
+# 		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
+# 	else
+# 		puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
+# 		award you zero letters in the mystery word."
+# 	end
 
-	puts game.guess_arr.join(" ")
+# 	puts game.guess_arr.join(" ")
 
-	game.update_guesses_and_result
+# 	game.update_guesses_and_result
 
-end
+# end
 

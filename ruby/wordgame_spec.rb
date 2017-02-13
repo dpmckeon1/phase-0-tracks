@@ -36,4 +36,18 @@ describe WordGame do
     expect(game.update_guess_arr([1, 6], "y")).to eq ["_", "y", "_", "_", "_", "_", "y"]
   end
 
+  it "generates lose result when player has lost" do
+    game.num_guesses = 9
+    game.update_guesses_and_result
+    game.guess_arr = ["_", "y", "_", "_", "_", "_", "y"]
+    expect(game.result).to eq "lose"
+  end
+
+  it "generates win result when player has won" do
+    game.num_guesses = 4
+    game.guess_arr = ["m", "y", "s", "t", "e", "r", "y"]
+    game.update_guesses_and_result
+    expect(game.result).to eq "win"
+  end
+
 end
