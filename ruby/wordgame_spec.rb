@@ -36,9 +36,8 @@ describe WordGame do
     expect(game.update_guess_arr([1, 6], "y")).to eq ["_", "y", "_", "_", "_", "_", "y"]
   end
 
+  it "correctly updates guess string"
+  	expect(game.generate_updated_guess_str).to eq "_ y _ _ _ _ y"
+  end
 
-
-  # it "retrieves an item by index" do
-  #   expect(list.get_item(0)).to eq "do the dishes"
-  # end
 end

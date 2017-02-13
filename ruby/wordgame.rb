@@ -68,24 +68,24 @@ end
 
 # Prompt for word
 
-# puts "First Player...Please enter mystery word: "
-# mystery_word = gets.chomp
+puts "First Player...Please enter mystery word: "
+mystery_word = gets.chomp
 
-# game = WordGame.new(mystery_word)
+game = WordGame.new(mystery_word)
 
-# puts "Second Player...Please enter a letter that you think is in the mystery word: "
+puts "Second Player...Please enter a letter that you think is in the mystery word: "
 
-# guess_letter = gets.chomp
+guess_letter = gets.chomp
 
-# if game.mystery_word_arr.include? (guess_letter)
-# 	guess_index = game.find_guess_index(guess_letter)
-# 	game.update_guess_arr(guess_index, guess_letter)
-# 	puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
-# else
-# 	puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
-# 	award you zero letters in the mystery word."
-# end
+if game.is_correct_guess?(guess_letter)
+	guess_index = game.find_guess_index(guess_letter)
+	game.update_guess_arr(guess_index, guess_letter)
+	puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
+else
+	puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
+	award you zero letters in the mystery word."
+end
 
-# game.display_current_progress
+game.display_current_progress
 
 
