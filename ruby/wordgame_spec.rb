@@ -44,10 +44,18 @@ describe WordGame do
   end
 
   it "generates win result when player has won" do
-    game.num_guesses = 4
+    game.num_guesses = 9
     game.guess_arr = ["m", "y", "s", "t", "e", "r", "y"]
     game.update_guesses_and_result
     expect(game.result).to eq "win"
+  end
+
+  it "ensures repeat guesses are not counted against max_guesses limit" do
+  	game.num_guesses = 4
+  	game.update_guess_arr([0], "m")
+  	game.is_correct_guess?("m")
+  	game.update_guesses_and_result
+    expect(game.num_guesses).to eq 4
   end
 
 end
