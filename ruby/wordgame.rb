@@ -36,11 +36,15 @@ class WordGame
 	end
 
 	
-	def is_correct_guess?(guess_letter)
+	def categorize_guess(guess_letter)
 		if @mystery_word_arr.include?(guess_letter) && !@guess_arr.include?(guess_letter)
-			true
+			"present"
+		elsif @guess_arr.include?(guess_letter)
+			@num_guesses -= 1 	#Adjust num_guesses down one on repeat guesses to ensure 
+								# it is not counted against limit
+			"repeat"
 		else
-			false
+			"absent"
 		end
 	end
 
@@ -74,35 +78,41 @@ class WordGame
 		end
 	end
 
-	def generate_message(game_result)
+	def generate_message
+		if @result == "win"
+			"Congratulations!!! You're a winner!"
+		else
+			"Following a string of failed guesses, you've lost the game. You've both lost the battles and the war."
+		end
 	end
 end
 
 # Prompt for word
 
-# puts "First Player...please enter mystery word: "
-# mystery_word = gets.chomp
+puts "First Player...please enter mystery word: "
+mystery_word = gets.chomp
 
-# game = WordGame.new(mystery_word)
+game = WordGame.new(mystery_word)
 
-# while game.result == "ongoing"
+while game.result == "ongoing"
 
-# 	puts "Second Player...Please enter a letter that you think is in the mystery word: "
+	puts "Second Player...Please enter a letter that you think is in the mystery word: "
 
-# 	guess_letter = gets.chomp
+	guess_letter = gets.chomp
 
-# 	if game.is_correct_guess?(guess_letter)
-# 		guess_index = game.find_guess_index(guess_letter)
-# 		game.update_guess_arr(guess_index, guess_letter)
-# 		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
-# 	else
-# 		puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
-# 		award you zero letters in the mystery word."
-# 	end
+	if game.categorize_guess(guess_letter) == "present"
+		guess_index = game.find_guess_index(guess_letter)
+		game.update_guess_arr(guess_index, guess_letter)
+		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
+	elsif game.categorize_guess(guess_letter) == "repeat"
+		puts "You've already guessed #{guess_letter}. Try a different letter next time. We won't count that one against you."
+	else
+		puts "Missed the mark on that one."
+	end
 
-# 	puts game.guess_arr.join(" ")
+	puts game.guess_arr.join(" ")
 
-# 	game.update_guesses_and_result
+	game.update_guesses_and_result
+end
 
-# end
-
+puts game.generate_message
