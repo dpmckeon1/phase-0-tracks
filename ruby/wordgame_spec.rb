@@ -58,4 +58,14 @@ describe WordGame do
     expect(game.num_guesses).to eq 4
   end
 
+  it "prints congrulatory message on win" do
+  	game.result = "win"
+  	expect(game.generate_message).to eq "Congratulations!!! You're a winner!"
+  end
+
+  it "prints taunting message on loss" do
+  	game.result = "lose"
+  	expect(game.generate_message).to eq "Following a string of failed guesses, you've lost the game. You've both lost the battles and the war."
+  end  
+
 end
