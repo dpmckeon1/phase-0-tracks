@@ -24,29 +24,63 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :letter_check_arr	
+	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr	
 
 	def initialize(mystery_word_str)
 		@mystery_word_arr = mystery_word_str.split("")
 		@guess_arr = Array.new(mystery_word_arr.length, "_")
 		@max_guesses = (@mystery_word_arr.length * 1.5).to_i # Rounds down to nearest integer
 	end
-	def process_guess(guess_letter)
-		if @mystery_word_arr.includes? (guess_letter)
-			self.process_correct_guess
-		else
-			puts "Sorry, #{guess_letter} is not in the mystery word"
-		end
-		@mystery_word_arr
+
+	
+	def is_correct?(guess_letter)
 	end
 
-	def process_correct_guess
+	def find_guess_index(guess_letter)
+		@guess_index = []
 		i = 0
 		while i < @mystery_word_arr.length
+			if @mystery_word_arr[i] == guess_letter
+				@guess_index << i
+			end
+			i += 1
+		end
+		@guess_index
+	end
 
+	def update_guess_arr(guess_index, guess_letter)
+		guess_index.each { |index| @guess_arr[index] = guess_letter }
+		@guess_arr
+	end
 
-
+	def display_current_progress
+		@guess_arr.each { |character| puts "#{character} "}
+	end
 
 	def generate_message(game_result)
 	end
 end
+
+# Prompt for word
+
+# puts "First Player...Please enter mystery word: "
+# mystery_word = gets.chomp
+
+# game = WordGame.new(mystery_word)
+
+# puts "Second Player...Please enter a letter that you think is in the mystery word: "
+
+# guess_letter = gets.chomp
+
+# if game.mystery_word_arr.include? (guess_letter)
+# 	guess_index = game.find_guess_index(guess_letter)
+# 	game.update_guess_arr(guess_index, guess_letter)
+# 	puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
+# else
+# 	puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
+# 	award you zero letters in the mystery word."
+# end
+
+# game.display_current_progress
+
+
