@@ -24,25 +24,27 @@
 # h) Return guess_progress to display to user
 
 class WordGame
+	# numerous accessors present primarily due to simplifying testing apparatus
 	attr_accessor :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr, 
-	:result, :num_guesses	
+	:result, :num_guesses, :previous_guesses	
 
 	def initialize(mystery_word_str)
 		@result = "ongoing"
 		@mystery_word_arr = mystery_word_str.split("")
 		@guess_arr = Array.new(mystery_word_arr.length, "_")
+		@previous_guesses = []
 		@num_guesses = 0
 		@max_guesses = (@mystery_word_arr.length * 1.5).to_i # Rounds down to nearest integer
 	end
 
 	
 	def categorize_guess(guess_letter)
-		if @mystery_word_arr.include?(guess_letter) && !@guess_arr.include?(guess_letter)
-			"present"
-		elsif @guess_arr.include?(guess_letter)
+		if @previous_guesses.include?(guess_letter)
 			@num_guesses -= 1 	#Adjust num_guesses down one on repeat guesses to ensure 
 								# it is not counted against limit
 			"repeat"
+		elsif @mystery_word_arr.include?(guess_letter)
+			"present"
 		else
 			"absent"
 		end
@@ -99,13 +101,15 @@ while game.result == "ongoing"
 	guess_letter = gets.chomp
 
 	if game.categorize_guess(guess_letter) == "present"
+		game.previous_guesses << guess_letter
 		guess_index = game.find_guess_index(guess_letter)
 		game.update_guess_arr(guess_index, guess_letter)
 		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
-	elsif game.categorize_guess(guess_letter) == "repeat"
-		puts "You've already guessed #{guess_letter}. Try a different letter next time. We won't count that one against you."
-	else
+	elsif game.categorize_guess(guess_letter) == "absent"
+		game.previous_guesses << guess_letter
 		puts "Missed the mark on that one."
+	else
+		puts "You've already guessed #{guess_letter}. Try a different letter next time. We won't count that one against you."		
 	end
 
 	puts game.guess_arr.join(" ")
