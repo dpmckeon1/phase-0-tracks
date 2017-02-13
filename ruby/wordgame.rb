@@ -24,11 +24,13 @@
 # h) Return guess_progress to display to user
 
 class WordGame
-	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr	
+	attr_reader :mystery_word_arr, :guess_arr, :max_guesses, :guess_index_arr, :game_result	
 
 	def initialize(mystery_word_str)
+		@result = "ongoing"
 		@mystery_word_arr = mystery_word_str.split("")
 		@guess_arr = Array.new(mystery_word_arr.length, "_")
+		@num_guesses = 0
 		@max_guesses = (@mystery_word_arr.length * 1.5).to_i # Rounds down to nearest integer
 	end
 
@@ -58,8 +60,17 @@ class WordGame
 		@guess_arr
 	end
 
-	def display_current_progress
-		@guess_arr.each { |character| puts "#{character} "}
+	def generate_updated_guess_str
+		@guess_arr.join(" ")
+	end
+
+	def update_guesses_and_result
+		@num_guesses += 1
+		if @num_guesses == @max_guesses  && @mystery_word_arr == @guess_arr
+			@result = "win"
+		elsif @num_guesses == @max_guesses
+			@result = "lose"
+		end
 	end
 
 	def generate_message(game_result)
@@ -68,24 +79,29 @@ end
 
 # Prompt for word
 
-puts "First Player...Please enter mystery word: "
+puts "First Player...please enter mystery word: "
 mystery_word = gets.chomp
 
 game = WordGame.new(mystery_word)
 
-puts "Second Player...Please enter a letter that you think is in the mystery word: "
+while game.result == "ongoing"
 
-guess_letter = gets.chomp
+	puts "Second Player...Please enter a letter that you think is in the mystery word: "
 
-if game.is_correct_guess?(guess_letter)
-	guess_index = game.find_guess_index(guess_letter)
-	game.update_guess_arr(guess_index, guess_letter)
-	puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
-else
-	puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
-	award you zero letters in the mystery word."
+	guess_letter = gets.chomp
+
+	if game.is_correct_guess?(guess_letter)
+		guess_index = game.find_guess_index(guess_letter)
+		game.update_guess_arr(guess_index, guess_letter)
+		puts "Very nice. You've revealed #{guess_index.length} more letters in the mystery word"	
+	else
+		puts "Your guess was a complete failure. We are all dumber for having indulged it. I 
+		award you zero letters in the mystery word."
+	end
+
+	puts game.guess_arr.join(" ")
+
+	game.update_guesses_and_result
+
 end
-
-game.display_current_progress
-
 
