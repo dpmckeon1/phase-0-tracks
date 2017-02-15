@@ -9,14 +9,15 @@
 
 function reverse(inputStr) {
 	inputArr = inputStr.split("");
-	var reversedArr = 
+	var reversedStr = ""
 	endIndex = inputArr.length - 1;
-	currentIndex = 0
 	for (i = endIndex; i >= 0; i--) {
-		
-		currentIndex++;
+		reversedStr += inputArr[i]
 	}
-	return reversedArr;
+
+	return reversedStr;
 }
 
-console.log(reverse("hello"))
+var helloReversed = reverse("hello")
+
+console.log(helloReversed)
