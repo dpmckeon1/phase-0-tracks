@@ -7,3 +7,9 @@
 // combine reversed array to create reversed string
 // return reversed string
 
+function reverse(input_str) {
+	input_arr = input_str.split("")
+	return input_arr
+}
+
+console.log(reverse("hello"))
