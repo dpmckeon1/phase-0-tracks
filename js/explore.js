@@ -18,6 +18,10 @@ function reverse(inputStr) {
 	return reversedStr;
 }
 
-var helloReversed = reverse("hello")
+reverseHello = true;
+var helloReversed = reverse("hello");
 
-console.log(helloReversed)
+if (reverseHello == true) {
+	console.log(helloReversed);
+}
+
