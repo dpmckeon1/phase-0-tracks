@@ -7,15 +7,16 @@
 // combine reversed array to create reversed string
 // return reversed string
 
-function reverse(input_str) {
-	input_arr = input_str.split("");
-	reversed_arr = 
-	end_index = input_arr.length - 1;
-	start_index = 0
-	for (i = end_index; i >= 0; i--) {
+function reverse(inputStr) {
+	inputArr = inputStr.split("");
+	var reversedArr = 
+	endIndex = inputArr.length - 1;
+	currentIndex = 0
+	for (i = endIndex; i >= 0; i--) {
 		
+		currentIndex++;
 	}
-	return reversed_arr;
+	return reversedArr;
 }
 
 console.log(reverse("hello"))
