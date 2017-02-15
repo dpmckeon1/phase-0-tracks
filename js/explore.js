@@ -8,8 +8,14 @@
 // return reversed string
 
 function reverse(input_str) {
-	input_arr = input_str.split("")
-	return input_arr
+	input_arr = input_str.split("");
+	reversed_arr = 
+	end_index = input_arr.length - 1;
+	start_index = 0
+	for (i = end_index; i >= 0; i--) {
+		
+	}
+	return reversed_arr;
 }
 
 console.log(reverse("hello"))
