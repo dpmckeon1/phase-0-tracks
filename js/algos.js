@@ -79,7 +79,7 @@ console.log(has_matching_pair(steven, jerry));
 
 console.log("\n*** Release 2 ***\n");
 
-// generate_test_data function
+// generate_testData function
 // input: integer for length of array
 // output: array of strings
 
@@ -89,30 +89,30 @@ console.log("\n*** Release 2 ***\n");
 // and append array
 // 4) Return array
 
-function generate_test_data(num_elements) {
-	test_data = [];
-	for(i = 0; i < num_elements; i++) {
-		random_str = "";
-		random_str_length = 1 + Math.floor(Math.random() * 10);
-		for(j = 0; j < random_str_length; j++) {
-			random_str += generate_random_char();
+function GenerateTestData(numElements) {
+	testData = [];
+	for(i = 0; i < numElements; i++) {
+		randomStr = "";
+		randomStrLength = 1 + Math.floor(Math.random() * 10);
+		for(j = 0; j < randomStrLength; j++) {
+			randomStr += GenerateRandomChar();
 		}
-		test_data.push(random_str);
+		testData.push(randomStr);
 	}
-	return test_data;
+	return testData;
 }
 
-function generate_random_char() {
-	random_char_num = Math.floor(Math.random() * 26);
-	random_char = String.fromCharCode(97 + random_char_num);
-	return random_char;
+function GenerateRandomChar() {
+	randomCharNum = Math.floor(Math.random() * 26);
+	randomChar = String.fromCharCode(97 + randomCharNum);
+	return randomChar;
 }
 
 for(k = 0; k < 10; k++) {
-	array_length = 1 + Math.floor(Math.random() * 5); // Randomly assign length 1-10
-	test_data = generate_test_data(array_length);
-	console.log("Test Array: " + test_data);
-	console.log("Longest Word: " + FindLongestPhrase(test_data))
+	arrayLength = 1 + Math.floor(Math.random() * 5); // Randomly assign length 1-10
+	testData = GenerateTestData(arrayLength);
+	console.log("Test Array: " + testData);
+	console.log("Longest Word in Array: " + FindLongestPhrase(testData))
 }
 
 
