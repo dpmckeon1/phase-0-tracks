@@ -108,6 +108,11 @@ function generate_random_char() {
 	return random_char;
 }
 
-console.log(generate_test_data(3));
+for(k = 0; k < 10; k++) {
+	array_length = 1 + Math.floor(Math.random() * 5); // Randomly assign length 1-10
+	test_data = generate_test_data(array_length);
+	console.log("Test Array: " + test_data);
+	console.log("Longest Word: " + FindLongestPhrase(test_data))
+}
 
 
