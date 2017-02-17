@@ -51,9 +51,18 @@ console.log("\n*** Release 1 ***\n");
 // set has_matching_pair to true
 // 5) Return has_matching_pair
 
-
+function has_matching_pair(object1, object2) {
+	var has_matching_pair = false;
+	for (var key in object1) {
+		console.log(key);
+		console.log(object1[key]);
+	}
+	return has_matching_pair;
+}
 
 
 
 var steven =  {name: "Steven", age: 54};
 var tamir = {name: "Tamir", age: 54};
+
+console.log(has_matching_pair(steven, tamir));
