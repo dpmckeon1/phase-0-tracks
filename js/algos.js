@@ -92,7 +92,11 @@ console.log("\n*** Release 2 ***\n");
 function generate_test_data(num_elements) {
 	test_data = [];
 	for(i = 0; i < num_elements; i++) {
-		test_data.push("element");
+		random_num = Math.floor(Math.random() * 10);
+		for(i = 0; i <= random_num; i++) {
+			
+		}
+		test_data.push(random_num);
 	}
 	return test_data;
 }
