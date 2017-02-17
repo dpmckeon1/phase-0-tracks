@@ -74,3 +74,17 @@ var jerry = {name: "Jerry", age: 55};
 console.log(has_matching_pair(steven, tamir));
 console.log(has_matching_pair(jerry, tamir));
 console.log(has_matching_pair(steven, jerry));
+
+// Release 2
+
+console.log("\n*** Release 2 ***\n");
+
+// generate_test_data function
+// input: integer for length of array
+// output: array of strings
+
+// 1) Declare empty array
+// 2) Loop through number of times specified by input
+// 3) Generate random letter combinations from 1-10 at a time 
+// and append array
+// 4) Return array
