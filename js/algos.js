@@ -92,16 +92,20 @@ console.log("\n*** Release 2 ***\n");
 function generate_test_data(num_elements) {
 	test_data = [];
 	for(i = 0; i < num_elements; i++) {
-		random_str_length = Math.floor(Math.random() * 10);
+		random_str_length = 1 + Math.floor(Math.random() * 10);
 		random_str = "";
-		for(i = 0; i <= random_str_length; i++) {
-			random_char_num = Math.floor(Math.random() * 26);
-			random_char = String.fromCharCode(97 + random_char_num);
-			random_str = random_str + random_char;
+		for(i = 0; i < random_str_length; i++) {
+			random_str += generate_random_char();
 		}
 		test_data.push(random_str);
 	}
 	return test_data;
+}
+
+function generate_random_char() {
+	random_char_num = Math.floor(Math.random() * 26);
+	random_char = String.fromCharCode(97 + random_char_num);
+	return random_char;
 }
 
 console.log(generate_test_data(3));
