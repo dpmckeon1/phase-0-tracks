@@ -53,9 +53,13 @@ console.log("\n*** Release 1 ***\n");
 
 function has_matching_pair(object1, object2) {
 	var has_matching_pair = false;
-	for (var key in object1) {
-		console.log(key);
-		console.log(object1[key]);
+	for (var key1 in object1) {
+		// console.log(key1);
+		// console.log(object1[key1]);
+		for (var key2 in object2) {
+			console.log(key2);
+			console.log(object2[key2]);
+		}
 	}
 	return has_matching_pair;
 }
