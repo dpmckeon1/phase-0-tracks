@@ -23,7 +23,7 @@ phraseArray1 = ["Doohicky", "Start", "Pool"];
 
 phraseArray2 = ["Look", "At", "This", "Five Element Long", "Array"];
 
-phraseArray3 = ["Look At", "This Six", "Element Long Array"];
+phraseArray3 = ["Look At", "This Three", "Element Long Array"];
 
 console.log(FindLongestPhrase(phraseArray1));
 
