@@ -57,8 +57,9 @@ function has_matching_pair(object1, object2) {
 		// console.log(key1);
 		// console.log(object1[key1]);
 		for (var key2 in object2) {
-			console.log(key2);
-			console.log(object2[key2]);
+			if (key1 == key2 && object1[key1] == object2[key2]) {
+				has_matching_pair = true;	
+			}
 		}
 	}
 	return has_matching_pair;
@@ -68,5 +69,8 @@ function has_matching_pair(object1, object2) {
 
 var steven =  {name: "Steven", age: 54};
 var tamir = {name: "Tamir", age: 54};
+var jerry = {name: "Jerry", age: 55};
 
 console.log(has_matching_pair(steven, tamir));
+console.log(has_matching_pair(jerry, tamir));
+console.log(has_matching_pair(steven, jerry));
