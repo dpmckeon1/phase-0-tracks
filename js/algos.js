@@ -88,3 +88,15 @@ console.log("\n*** Release 2 ***\n");
 // 3) Generate random letter combinations from 1-10 at a time 
 // and append array
 // 4) Return array
+
+function generate_test_data(num_elements) {
+	test_data = [];
+	for(i = 0; i < num_elements; i++) {
+		test_data.push("element");
+	}
+	return test_data;
+}
+
+console.log(generate_test_data(3));
+
+
