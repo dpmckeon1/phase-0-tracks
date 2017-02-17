@@ -39,30 +39,30 @@ console.log(FindLongestPhrase(phraseArray3));
 
 console.log("\n*** Release 1 ***\n");
 
-// has_matching_pair function
+// HasMatchingPair function
 // input: 2 objects with key-value pairs
 // output: boolean
 
-// 1) Set has_matching_pair variable to false
+// 1) Set HasMatchingPair variable to false
 // 2) Loop through keys pairs in first object
 // 3) For each key in first object, use for loop to find 
 // matching key in second object
 // 4) If there is a matching key, see if the values match. If so, 
-// set has_matching_pair to true
-// 5) Return has_matching_pair
+// set HasMatchingPair to true
+// 5) Return HasMatchingPair
 
-function has_matching_pair(object1, object2) {
-	var has_matching_pair = false;
+function HasMatchingPair(object1, object2) {
+	var HasMatchingPair = false;
 	for (var key1 in object1) {
 		// console.log(key1);
 		// console.log(object1[key1]);
 		for (var key2 in object2) {
 			if (key1 == key2 && object1[key1] == object2[key2]) {
-				has_matching_pair = true;	
+				HasMatchingPair = true;	
 			}
 		}
 	}
-	return has_matching_pair;
+	return HasMatchingPair;
 }
 
 
@@ -71,9 +71,9 @@ var steven =  {name: "Steven", age: 54};
 var tamir = {name: "Tamir", age: 54};
 var jerry = {name: "Jerry", age: 55};
 
-console.log(has_matching_pair(steven, tamir));
-console.log(has_matching_pair(jerry, tamir));
-console.log(has_matching_pair(steven, jerry));
+console.log(HasMatchingPair(steven, tamir));
+console.log(HasMatchingPair(jerry, tamir));
+console.log(HasMatchingPair(steven, jerry));
 
 // Release 2
 
