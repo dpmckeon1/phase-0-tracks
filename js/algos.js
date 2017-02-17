@@ -10,7 +10,24 @@
 
 function FindLongestPhrase(phrasesArray) {
 	var longestPhrase = "";
-	
-	var testPhrase = phrases
-
+	for(i = 0; i <= phrasesArray.length; i++) {
+		var testPhrase = phrasesArray[i];
+		// testArray = testPhrase.split("");
+		if testPhrase.length > longestPhrase.length {
+			longestPhrase = testPhrase;
+		}
+	}
+	return longestPhrase;
 }
+
+phraseArray1 = ["Doohicky", "Start", "Pool"];
+
+phraseArray2 = ["Look", "At", "This", "Five Element Long", "Array"];
+
+phraseArray3 = ["Look At", "This Six", "Element Long Array"]
+
+console.log(FindLongestPhrase(phraseArray1));
+
+console.log(FindLongestPhrase(phraseArray2));
+
+console.log(FindLongestPhrase(phraseArray3));
