@@ -30,17 +30,17 @@ class VirusPredictor
   # predicting total # of deaths in given state based on pop density and population
   def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
-    end
+    number_of_deaths =  if @population_density >= 200
+                          num_deaths(0.4)
+                        elsif @population_density >= 150
+                          num_deaths(0.3)
+                        elsif @population_density >= 100
+                          num_deaths(0.2)
+                        elsif @population_density >= 50
+                          num_deaths(0.1)
+                        else
+                          num_deaths(0.05)
+                        end
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
@@ -64,6 +64,10 @@ class VirusPredictor
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
+  end
+
+  def num_deaths(multiplier)
+    (@population * multiplier).floor
   end
 
 end
