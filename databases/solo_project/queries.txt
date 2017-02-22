@@ -48,3 +48,23 @@ Gerald Richard|true|Vendor Solutions
 Lisa Simpson|true|Small Company USA
 Bobby McGee|true|Vendor Solutions
 
+
+R3.2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+## LEFT JOIN (NULL values in bottom row due to existence of one company for which there are no longer employees):
+
+sqlite> SELECT age, active, employees FROM companies c LEFT JOIN vendors v ON c.id = v.company_id;
+29|true|25
+57|true|167
+24|true|167
+||12
+
+
+## INNER JOIN:
+
+sqlite> SELECT age, active, employees FROM companies c INNER JOIN vendors v ON c.id = v.company_id;
+29|true|25
+57|true|167
+24|true|167
+
+
