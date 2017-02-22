@@ -1,0 +1,17 @@
+queries.txt
+
+
+1. Display the information in one table (either table is fine).
+
+sqlite> select * from vendors;
+1|Alex Antoinette|29|true|1
+2|Gerald Richard|57|true|2
+3|Mike McMann|70|false|2
+4|Lisa Simpson|50|true|3
+5|Jack Roberts|42|false|1
+6|Jim Dingman|49|false|3
+7|Bobby McGee|24|true|2
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
