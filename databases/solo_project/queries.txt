@@ -1,0 +1,70 @@
+queries.txt
+
+
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM companies;
+1|McKeon, Inc.|Minneapolis, MN|25
+2|Vendor Solutions|Omaha, NE|167
+3|Small Company USA|Flint, MI|3
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE companies SET employees=12 WHERE name="Small Company USA";
+sqlite> SELECT * FROM companies;
+1|McKeon, Inc.|Minneapolis, MN|25
+2|Vendor Solutions|Omaha, NE|167
+3|Small Company USA|Flint, MI|12
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM companies, vendors WHERE vendors.company_id = companies.id;
+1|McKeon, Inc.|Minneapolis, MN|25|1|Alex Antoinette|29|true|1
+2|Vendor Solutions|Omaha, NE|167|2|Gerald Richard|57|true|2
+2|Vendor Solutions|Omaha, NE|167|3|Mike McMann|70|false|2
+3|Small Company USA|Flint, MI|12|4|Lisa Simpson|50|true|3
+1|McKeon, Inc.|Minneapolis, MN|25|5|Jack Roberts|42|false|1
+3|Small Company USA|Flint, MI|12|6|Jim Dingman|49|false|3
+2|Vendor Solutions|Omaha, NE|167|7|Bobby McGee|24|true|2
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT vendors.name, vendors.active, companies.name FROM vendors, companies WHERE vendors.company_id = companies.id;
+Alex Antoinette|true|McKeon, Inc.
+Gerald Richard|true|Vendor Solutions
+Mike McMann|false|Vendor Solutions
+Lisa Simpson|true|Small Company USA
+Jack Roberts|false|McKeon, Inc.
+Jim Dingman|false|Small Company USA
+Bobby McGee|true|Vendor Solutions
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> DELETE FROM vendors WHERE active="false";
+sqlite> SELECT vendors.name, vendors.active, companies.name FROM vendors, companies WHERE vendors.company_id = companies.id;
+Alex Antoinette|true|McKeon, Inc.
+Gerald Richard|true|Vendor Solutions
+Lisa Simpson|true|Small Company USA
+Bobby McGee|true|Vendor Solutions
+
+
+R3.2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+## LEFT JOIN (NULL values in bottom row due to existence of one company for which there are no longer employees):
+
+sqlite> SELECT age, active, employees FROM companies c LEFT JOIN vendors v ON c.id = v.company_id;
+29|true|25
+57|true|167
+24|true|167
+||12
+
+
+## INNER JOIN:
+
+sqlite> SELECT age, active, employees FROM companies c INNER JOIN vendors v ON c.id = v.company_id;
+29|true|25
+57|true|167
+24|true|167
+
+
