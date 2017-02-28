@@ -1,4 +1,4 @@
-# HTTP Requests Reseach
+# HTTP Requests Research
 ## Dan McKeon
 
 ### What are some common HTTP status codes?
