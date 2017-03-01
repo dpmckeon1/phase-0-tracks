@@ -7,34 +7,15 @@
 <header>
   <div class = "header">
     <div class = "logo_container">
-      <%= link_to image_tag("logo_crc.png"), root_path %>
+      <img src="img/logo_crc.png">
     </div>
     <div class = "nav_container">
       <nav>
         <ul>
-          <li><%= link_to "Clinical Trial Search", '#ctsearch' %></li>
-          <li><%= link_to "Clinical Trials 101", '#ct101' %></li>
-          <li><%= link_to "The FDA Process", '#fdaprocess' %></li>
-          <li><%= link_to "Who We Are", '#whoweare' %></li>
-          <% if logged_in? %>
-            <li><%= link_to "Users", '#' %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Log Out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Log In", login_path %></li>
-            <li><%= link_to "Sign Up", signup_path %></li>
-          <% end %>
+          <li><a href="#ctsearch">Clinical Trial Search</a></li>
+          <li><a href="#ct101">Clinical Trials 101</a></li>
+          <li><a href="#fdaprocess">The FDA Process</a></li>
+          <li><a href="#whoweare">Who We Are</a></li>
         </ul>
       </nav>
     </div>
@@ -112,25 +93,25 @@
   <h2>The FDA Process</h2>
   <div class="fdaprocess_body_container">
     <div class="fdaprocess_step" id="lab">
-      <%= image_tag("lab_img.png", :alt => "Lab Step") %>
+      <img src="img/lab_img.png">
       <div class="fdaprocess_divider">
       </div>
       <p>Every new medication begins in the laboratory.  Pharmaceutical companies and other researchers evaluate tens of thousands of compounds every year, searching for the few that may prove beneficial.  From the time they identify such a compound until it reaches the market (if it does) it could take 10 years or more and could cost more than a billion dollars.</p>
     </div>
     <div class="fdaprocess_step" id="application">
-      <%= image_tag("application_img.png", :alt => "Application Step") %>
+      <img src="img/application_img.png">
       <div class="fdaprocess_divider">
       </div>
       <p>Once a compound shows promise in the laboratory and animal studies, companies apply to the FDA for permission to conduct human clinical trials.  These trials occur in four phases designed to determine specific information, such as risks, safety, and effectiveness compared with a standard drug or therapy.</p>
     </div>
     <div class="fdaprocess_step" id="trial">
-      <%= image_tag("trial_img.png", :alt => "Clinical Trial Step") %>
+      <img src="img/trial_img.png">
       <div class="fdaprocess_divider">
       </div>
       <p>Each phase is strictly regulated and evaluated, and the safety of the participants is always the top priority.  If there are any safety concerns, officials will halt the trial.</p>
     </div>
     <div class="fdaprocess_step" id="approval">
-      <%= image_tag("approval_img.png", :alt => "FDA Approval Step") %>
+      <img src="img/approval_img.png">
       <div class="fdaprocess_divider">
       </div>
       <p>Only after a cancer drug has been shown to be safe and effective, or more effective than existing ones, does the FDA approve it for sale in the US.  Once approved, it becomes available for prescription.</p>
@@ -148,9 +129,6 @@
 </div>
 
 <footer class="footer">
-  <div>
-  <%= link_to "Show Clinical Trial Data", clinicaltrials_path %>
-  </div>
   <small>
     Cancer Research Connect &copy; 2016
   </small>
