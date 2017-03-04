@@ -207,6 +207,7 @@ nav {
   padding-top: 40px; }
 
 .panel_link_block {
+  vertical-align: top;
   padding-top: 20px;
   width: 49%;
   position: relative;
