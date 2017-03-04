@@ -103,3 +103,8 @@ I think it is the best approach to focus on one specific function because I lear
         * .keypress()
     * On hover
         * .hover()
+
+
+### Recap
+
+Went down a rabbit hole on this one. I wanted to work on my Rails project, so I grabbed a view and CSS file and copied it to my directory for this project. Then I had to refactor the embedded Ruby. Then I had to deal with all the assets. Then I had to refactor the SASS (fortunately I found a gem to do this one). I kept thinking I was close to done and then there would be one more thing. So anyhow, it took a while to do all that refactoring/troubleshooting, but there were some good learning experiences in that process. Once I got it copied over, I was able to generally understand some jQuery a friend had written for me for that page, which was cool. I also wrote some of my own jQuery and definitely gained a much more solid understanding of the language. I found a great set of videos on YouTube to "Learn jQuery in 15 Minutes." That was a huge help to get a basis and then the actual coding on my project really soldified it.
