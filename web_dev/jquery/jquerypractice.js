@@ -10,15 +10,6 @@ $(".panel-link").on("click", function(e) {
 
 // I did write the code directly below this
 
-$('.panel-link').click(function(){
-	// $(this).hide(500).delay(300).show(800);
-	$('.panel-link').children("h3").css("color", "black");
-	$('.panel-link').children("h3").css("font-size", "19px");
-	$("h3", this).css("color", $(this).attr('id'));
-	$("h3", this).css("font-size", "21px");
-	// if ($(this).attr('id') == )
-});
-
 $('.panel-link').hover(function(){
 	$("h3", this).css("color", $(this).attr('id'));
 },
@@ -26,5 +17,9 @@ function(){
 	$("h3", this).css("color", "black");	
 });
 
-
-// $("a", this).attr('id')
+$('.panel-link').click(function(){
+	$('.panel-link').children("h3").css("color", "black");
+	$('.panel-link').children("h3").css("font-size", "19px");
+	$("h3", this).css("color", $(this).attr('id'));
+	$("h3", this).css("font-size", "21px");
+});
