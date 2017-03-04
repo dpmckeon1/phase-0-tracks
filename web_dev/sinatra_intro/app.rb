@@ -67,3 +67,29 @@ get '/add_numbers/:num1/:num2' do
   "#{num1 + num2}"
 end
 
+get '/find_by_age/:min_age/:max_age' do
+  min_age = params[:min_age].to_i
+  max_age = params[:max_age].to_i
+
+  students = db.execute("SELECT * FROM students WHERE age >= ? AND age <= ? ORDER BY age ASC ", min_age, max_age)
+  table_html_str = 
+  "<table>
+    <tr>
+      <th>Name</th>
+      <th>Campus</th>
+      <th>Age</th>
+    </tr>"
+
+  students.each do |student|
+    table_html_str += "<tr>
+      <td>#{student['name']}</td>
+      <td>#{student['campus']}</td>
+      <td>#{student['age']}</td>
+    </tr>"
+  end
+
+  table_html_str += "</table>"
+end
+
+
+
