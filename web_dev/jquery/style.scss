@@ -1,0 +1,458 @@
+/* TODO
+Fix top nav aligning elements
+Fix horizontal align between divs due to different
+sizes if unages not lining up perfectly to 1024px width
+Could adjust border-top in fda process to be css instead of img
+Align Clin Trials 101 answers in center
+Insert gap between most top nav and log in/sign up
+Insert white background on top nav bar with hover
+@each function for colors in clinical trials 101
+Ensure we are okay to use graphics in FDA Process section without license
+Notify 99 Designs designer when site is live
+Add gradient to gray dividers in FDA Process section
+Uncomment debug and footer in views -> layouts -> application.html.erb
+Fix gradient CSS in other browsers
+Use @media max-width to make app responsive to tablets and phones - currently set up for computers
+Consider using http://purecss.io/ to make website responsive
+ctsearch section could use some refactoring
+@media (min-width:320px)  { smartphones, iPhone, portrait 480x320 phones  }
+@media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }
+@media (min-width:641px)  { portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones  }
+@media (min-width:961px)  { tablet, landscape iPad, lo-res laptops ands desktops  }
+@media (min-width:1025px) { big landscape tablets, laptops, and desktops }
+@media (min-width:1281px) { hi-res laptops and desktops }
+*/
+
+
+/* mixins, variables, etc. */
+
+$crc_purple: rgb(96, 16, 105);
+$crc_orange: rgb(230, 121, 37);
+$crc_green: rgb(89, 154, 69);
+$crc_teal: rgb(0, 111, 153);
+$crc_colors: $crc_purple, $crc_orange, $crc_green, $crc_teal;
+$border_gray: rgb(230, 230, 230);
+
+@mixin fda_process_box_vars($left_margin, $border_color, $background_img) {
+  margin-left: $left_margin;
+  border-bottom: 1px solid $border_color;
+  background-image: image-url($background_img);
+}
+
+@mixin ct101_left_line($color) {
+  border-left: 1px solid $color;
+/*  -moz-border-image: -moz-linear-gradient(transparent 0%, $color 50%, transparent 100%); */
+  -webkit-border-image: -webkit-linear-gradient(transparent 0%, $color 50%, transparent 100%);
+/*  border-image: linear-gradient(transparent 0%, $color 50%, transparent 100%); */
+  border-image-slice: 1;
+}
+
+/* universal */
+
+html {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 0;
+  outline: 0;
+  overflow-x: hidden;
+}
+
+body {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 0;
+  outline: 0;
+  overflow-x: hidden;
+  width: 1024px;
+  border-left: 1px solid $border_gray;
+  border-right: 1px solid $border_gray;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
+
+/* typography */
+
+h1 {
+  font-family: "trajan-pro-3",sans-serif;
+  color: white;
+  font-size: 48pt;
+  line-height: 48pt;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "trajan-pro-3",sans-serif;
+  font-size: 24pt;
+  color: black;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+h3 {
+  font-family: "trajan-pro-3",sans-serif;
+  color: black;
+  font-size:14pt;
+  font-weight:normal;
+}
+
+p {
+  font-family: "futura-pt",sans-serif;
+}
+
+nav {
+  font-family: "futura-pt",sans-serif;
+}
+
+
+/* header */
+
+.header {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 60px;
+  z-index:50;
+  background: white;
+  opacity: .95;
+  margin:0;
+}
+
+.logo_container {
+  position: relative;
+  display: inline-block;
+  width: 500px;
+  height: 60px;
+  a:hover {
+    text-decoration: none;
+    background: transparent;
+  }
+  img {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+}
+
+.nav_container {
+  position: relative;
+  display: inline-block;
+  width: 600px;
+  height: 60px;
+  list-style: none;
+  text-decoration:none;
+  vertical-align: top;
+  margin-top: 6px;
+  ul {
+    li {
+      text-decoration:none;
+      font-family: "futura-pt",sans-serif;
+      margin-right: 10px;
+      display: inline-block;
+      text-align:center;
+      text-decoration: none;
+      z-index: 55;
+      &:hover {
+        opacity: 1;
+      }
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      color: black; 
+      background-color: white;
+    }
+  }
+  
+  }
+}
+
+/* home page clinical trial search section */
+
+.ctsearch_section {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 421px;
+  background-image: image-url("background_clinical_trial_search.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  margin:0;
+  padding:0;
+  }
+
+.ctsearch_title_container {
+  position: relative;  
+  display:inline-block;
+  margin-left: 15%; 
+  margin-top: 50px;
+  width: 30%;
+}
+
+.ctsearch_divider {
+  position:relative;
+  display:block;
+  width:10%;
+  margin-left:15%; 
+  background: white;
+  height:1px;
+  z-index:20;
+}
+
+.ctsearch_body_container {
+  display: block;
+  margin-left: 15%;
+  bottom: 0%;
+  margin-right:5%; 
+  p {
+    font-family: "futura-pt",sans-serif; 
+    color: white;
+  }
+}
+
+ .clinical_trial_search_box {
+  position: relative;
+  display: inline-block;
+  height: 200px;
+  width: 50%;
+  background-image: image-url("clinical_trial_search_box.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 4%;
+  margin-top: 50px;
+  opacity:1;
+  z-index:30;
+} 
+
+/* clinical trials 101 section */
+
+.ct101_section {
+  margin:0;
+  padding:0;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 517px;
+  background-image: image-url("background_clinical_trials_101_no_color_bars.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  h2 {
+    padding-top: 60px;
+    text-align: center;
+    z-index: 30;
+    position: relative;
+  }
+}
+
+.ct101_body_container {
+  display:block;
+  width: 100%;
+  padding-top: 40px;
+}
+
+.panel_link_block {
+  padding-top: 20px;
+  width: 49%;
+  position: relative;
+  display:inline-block;
+}
+
+.panel-link {
+  h3 {
+    text-align:left;
+    position: relative;
+    line-height: 70px;
+    margin-left: 40px;  
+    display: inline;
+    &:before {
+      content:"";
+      padding-top: 20px;
+      margin-left: -20px;
+      position: absolute;
+      height: 50px;
+    }
+  }
+}
+
+#purple h3:before {
+  @include ct101_left_line($crc_purple);
+}
+
+#orange h3:before {
+  @include ct101_left_line($crc_orange);
+}
+
+#green h3:before {
+  @include ct101_left_line($crc_green);
+}
+
+#teal h3:before {
+  @include ct101_left_line($crc_teal);
+}
+
+.panel_content_block {
+  width: 50%;
+  height: 400px;
+  position: relative;
+  display:inline-block;
+}
+
+.panel-content {
+  display:none;
+  p {
+    vertical-align: middle;
+    font-family: "futura-pt",sans-serif;
+    font-size: 12pt;
+    line-height: 19px;
+  }
+}
+
+#panel-1 {
+  display:block;
+}
+
+
+/* fda process section */
+
+.fdaprocess_section {
+  position: relative;
+  display: block;
+  width:100%;
+  height: 542.73499px;
+  background-image: image-url("background_fda_process.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  h2 {
+    text-align: center;
+    padding-top: 80px;
+    z-index: 2;
+    position: relative;
+  }
+}
+
+.fdaprocess_divider {
+  margin-top: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  border-bottom: 1px solid $border_gray; 
+ }
+
+
+.fdaprocess_body_container {
+  width: 100%;
+  position: relative;
+  padding-top: 60px;
+}
+
+.fdaprocess_step {
+  vertical-align:top;
+  width: 23.25%;
+  height: 365px;
+  position: relative;
+  display: inline-block;
+  border: 1px solid $border_gray;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px $border_gray;
+  background-size: 120px auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  p {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-family: "futura-pt",sans-serif;
+    font-size: 12pt;
+    line-height: 18px;
+    }
+  img {
+    display: block;
+    position: relative;
+    width: 55px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+}
+
+#lab {
+  @include fda_process_box_vars(2.45%, $crc_purple, "lab_background_cropped.png");
+}
+
+#application {
+  @include fda_process_box_vars(0, $crc_teal, "applcation_background_cropped.png");
+}
+
+#trial {
+  @include fda_process_box_vars(0, $crc_orange, "trial_background_cropped.png");
+}
+
+#approval {
+  @include fda_process_box_vars(0, $crc_green, "approval_background_cropped.png");
+}
+
+
+/* who we are section */
+
+
+.whoweare_section {
+  position: relative;
+  display: block;
+  width:100%;
+  height: 299.8536px;
+  background-image: image-url("background_who_we_are.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index:-1;
+  h2 {
+    color: white;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    padding-top: 83px;
+  }
+  p {
+    text-align: center;
+    color: white;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 75px;
+    font-family: "futura-pt",sans-serif;
+    font-size: 12pt;
+    line-height: 18px;
+  }
+  .copyright {
+    position:relative;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 30px;
+    color: white;
+    font-family: "futura-pt",sans-serif;
+    font-size: 8pt;
+    z-index:3;
+  }
+} 
+
+
+
+/* clinical trial table */
+
+.clinical_trial_table {
+  position:relative;
+} 
